@@ -1,18 +1,69 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Smooch+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
 
 #bo-container {
     margin-top: 20px;
     padding: 0 80px;
     justify-content: center;
+
+    .t-BO {
+        text-align: center;
+        text-align: center;
+        font-size: 45px;
+        font-weight: 600;
+        line-break: 18px;
+        font-family: 'Bitter', serif;
+        font-family: 'Smooch Sans', sans-serif;
+    }
+
+    .t-addNewProd {
+        text-align: center;
+        font-size: 35px;
+        font-weight: 500;
+        line-break: 18px;
+        font-family: 'Bitter', serif;
+        font-family: 'Smooch Sans', sans-serif;
+    }
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    font-family: 'Bitter', serif;
+    font-family: 'Smooch Sans', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 0;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 #form {
 
-    .formControl {
-        margin-bottom: 10px;
+
+    .formControl:active {
+        border: none;
+        border-radius: none;
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid rgb(216, 215, 215);
     }
 
-    .addProdBtn {
-        
+    .formControl:focus {
+        border: none;
+        border-radius: none;
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid rgb(216, 215, 215);
     }
+
+    .addProdBtn {}
 }
