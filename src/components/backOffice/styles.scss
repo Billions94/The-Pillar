@@ -65,5 +65,17 @@
         border-bottom: 1px solid rgb(216, 215, 215);
     }
 
-    .addProdBtn {}
+    .addProdBtn {
+        border: 1px solid black;
+        background: white;
+        color: black;
+        width: 230px;
+
+        .btn-span {
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Bitter', serif;
+            font-family: 'Smooch Sans', sans-serif;
+        }
+    }
 }

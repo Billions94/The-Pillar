@@ -30,60 +30,62 @@ export default function Form() {
             updateProduct([...product, newItem]);
             updateNewProduct(initialState);
             await API.graphql(graphqlOperation(createProduct, { input: newItem }));
-          } catch (error) {
+        } catch (error) {
             console.log("Error creating product:", error);
-          }
+        }
     }
 
-  return (
-    <RB.Form id='form'>
-        <RB.FormGroup>
-            <RB.FormControl
-            className='formControl'
-            value={newProduct.name}
-            type='text'
-            onChange={(e) => updateInput('name', e.target.value)} 
-            placeholder='name' />
-        </RB.FormGroup>
-        <RB.FormGroup>
-            <RB.FormControl
-            className='formControl'
-            value={newProduct.description}
-            type='text'
-            onChange={(e) => updateInput('description', e.target.value)} 
-            placeholder='description' />
-        </RB.FormGroup>
-        <RB.FormGroup>
-            <RB.FormControl
-            className='formControl'
-            value={newProduct.image}
-            type='text'
-            onChange={(e) => updateInput('image', e.target.value)} 
-            placeholder='image url' />
-        </RB.FormGroup>
-        <RB.FormGroup>
-            <RB.FormControl
-            className='formControl'
-            value={newProduct.price}
-            type='number'
-            onChange={(e) => updateInput('price', e.target.value)} 
-            placeholder='price' />
-        </RB.FormGroup>
-        <RB.FormGroup>
-            <RB.FormControl
-            className='formControl'
-            value={newProduct.category}
-            type='text'
-            onChange={(e) => updateInput('category', e.target.value)} 
-            placeholder='category' />
-        </RB.FormGroup>
-        <RB.Button
-            onClick={createProd}
-            className='addProdBtn'
-            variant='success'>
-            Add product
-        </RB.Button>
+    return (
+        <RB.Form id='form'>
+            <RB.FormGroup>
+                <RB.FormControl
+                    className='formControl'
+                    value={newProduct.name}
+                    type='text'
+                    onChange={(e) => updateInput('name', e.target.value)}
+                    placeholder='name' />
+            </RB.FormGroup>
+            <RB.FormGroup>
+                <RB.FormControl
+                    className='formControl'
+                    value={newProduct.description}
+                    type='text'
+                    onChange={(e) => updateInput('description', e.target.value)}
+                    placeholder='description' />
+            </RB.FormGroup>
+            <RB.FormGroup>
+                <RB.FormControl
+                    className='formControl'
+                    value={newProduct.image}
+                    type='text'
+                    onChange={(e) => updateInput('image', e.target.value)}
+                    placeholder='image url' />
+            </RB.FormGroup>
+            <RB.FormGroup>
+                <RB.FormControl
+                    className='formControl'
+                    value={newProduct.price}
+                    type='number'
+                    onChange={(e) => updateInput('price', e.target.value)}
+                    placeholder='price' />
+            </RB.FormGroup>
+            <RB.FormGroup>
+                <RB.FormControl
+                    className='formControl'
+                    value={newProduct.category}
+                    type='text'
+                    onChange={(e) => updateInput('category', e.target.value)}
+                    placeholder='category' />
+            </RB.FormGroup>
+            <div className='d-flex justify-content-center mt-5'>
+                <RB.Button
+                    onClick={createProd}
+                    className='addProdBtn'
+                    variant='success'>
+                    <span className='btn-span'>Add product</span>
+                </RB.Button>
+            </div>
 
-    </RB.Form>
-  )
+        </RB.Form>
+    )
 }
