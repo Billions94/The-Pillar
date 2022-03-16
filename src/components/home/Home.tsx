@@ -25,17 +25,21 @@ export default function Home() {
   }, [])
 
   return (
-    <>
-    <h1 className="text-center mt-5">Suck my balls 🥜</h1>
-      {product.map((item, idx) => (
-        <div key={idx} className=''>
-          <h6>{item.name}</h6>
-          <h6>{item.description}</h6>
-          <h6>{item.price}</h6>
-          <h6>{item.category}</h6>
-          <RB.Image src={item.image} alt='' width='100%' />
-        </div>
-      ))}
-    </>
+    <RB.Row className='px-4'>
+      <h1 className="text-center mt-5">Suck my balls 🥜</h1>
+      <RB.Col sm={10} md={3}>
+        {product.map((item, idx) => (
+          <RB.Card key={idx} className=''>
+            <RB.Image src={item.image} alt='' width='100%' />
+            <RB.Card.Body>
+              <h6>{item.name}</h6>
+              <h6>{item.description}</h6>
+              <h6>{item.price}</h6>
+              <h6>{item.category}</h6>
+            </RB.Card.Body>
+          </RB.Card>
+        ))}
+      </RB.Col>
+    </RB.Row>
   )
 }
