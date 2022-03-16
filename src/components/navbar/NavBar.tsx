@@ -1,6 +1,7 @@
 import * as RB from 'react-bootstrap'
 import { navbarBrand } from '../../lib'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+import { navBarInfo } from './NavBarInfo'
 import './styles.scss'
 
 export default function NavBar() {
@@ -18,6 +19,13 @@ export default function NavBar() {
                     </>
                 </div>
             </RB.Navbar.Brand>
+            <>
+                {navBarInfo.map(item => (
+                    <RB.NavDropdown.Item onClick={() => navigate(`${item.path}`)}>
+                        {item.title}
+                    </RB.NavDropdown.Item>
+                ))}
+            </>
         </RB.Navbar>
     )
 }
