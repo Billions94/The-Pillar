@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-dagger-dev-163541-authRole",
+      "UnauthRoleArn": "arn:aws:iam::542256507213:role/amplify-dagger-dev-163541-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::542256507213:role/amplify-dagger-dev-163541-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-dagger-dev-163541-deployment",
+      "UnauthRoleName": "amplify-dagger-dev-163541-unauthRole",
+      "StackName": "amplify-dagger-dev-163541",
+      "StackId": "arn:aws:cloudformation:eu-central-1:542256507213:stack/amplify-dagger-dev-163541/bfb1d1e0-a53e-11ec-b165-0642819f2b98",
+      "AmplifyAppId": "d1betkm9bodfno"
+    },
+    "categories": {
+      "auth": {
+        "dagger16cbf359": {}
+      }
+    }
+  }
+}

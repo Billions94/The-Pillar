@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "productApi",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/ejiroghene/Desktop/Personal-Projects/dagger/amplify/backend/api/productApi/schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authdagger16cbf359"
+    }
+  }
+}
