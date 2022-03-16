@@ -25,11 +25,11 @@ export default function Home() {
   }, [])
 
   return (
-    <RB.Row className='px-4'>
+    <RB.Row id='home' className='px-4'>
       <h1 className="text-center mt-5">Suck my balls 🥜</h1>
       <RB.Col sm={10} md={3}>
         {product.map((item, idx) => (
-          <RB.Card key={idx} className=''>
+          <RB.Card key={idx} className='productCard'>
             <RB.Image src={item.image} alt='' width='100%' />
             <RB.Card.Body>
               <h6>{item.name}</h6>

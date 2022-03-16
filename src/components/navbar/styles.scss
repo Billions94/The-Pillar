@@ -10,7 +10,7 @@
         .brand-container {
             display: flex;
             align-items: center;
-    
+
             .d-text {
                 margin-left: 7px;
                 font-size: 25px;
@@ -28,6 +28,11 @@
         justify-content: center;
 
         .navLink {
+            font-size: 25px;
+            font-weight: 500;
+            line-break: 20px;
+            font-family: 'Bitter', serif;
+            font-family: 'Smooch Sans', sans-serif;
             color: black;
         }
     }
