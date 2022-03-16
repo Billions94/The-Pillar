@@ -5,7 +5,7 @@ import './styles.scss'
 
 export default function BackOffice() {
   return (
-    <RB.Row fluid id='bo-container'>
+    <RB.Row id='bo-container'>
       <h2 className='text-center mb-5'>BackOffice</h2>
       <h5 className='text-center mb-3'>Add a new product to the catalogue</h5>
       <RB.Col md={6}>

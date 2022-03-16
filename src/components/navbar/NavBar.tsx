@@ -10,7 +10,7 @@ export default function NavBar() {
 
     return (
         <RB.Navbar id='myNavBar' bg="light">
-            <RB.Navbar.Brand 
+            <RB.Navbar.Brand
                 className='brand'
                 onClick={() => navigate('/')}
                 style={{ cursor: 'pointer' }}>
@@ -22,8 +22,8 @@ export default function NavBar() {
                 </div>
             </RB.Navbar.Brand>
             <div className='link-container'>
-                {navBarInfo.map(item => (
-                    <RB.Nav.Link className='navLink'
+                {navBarInfo.map((item, idx) => (
+                    <RB.Nav.Link key={idx} className='navLink'
                         onClick={() => navigate(`${item.path}`)}>
                         {item.title}
                     </RB.Nav.Link>

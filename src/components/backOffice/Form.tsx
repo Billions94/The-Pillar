@@ -1,7 +1,9 @@
 import * as RB from 'react-bootstrap'
 import { useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
-import { listProducts } from '../../graphql/queries'
+import { useRecoilState } from 'recoil'
+import { productState } from '../atoms'
+import { createProduct } from '../../graphql/mutations'
 import './styles.scss'
 
 export default function Form() {
@@ -14,18 +16,23 @@ export default function Form() {
         category: ''
     }
 
-    const [product, updateProduct] = useState(initialState)
+    const [newProduct, updateNewProduct] = useState(initialState)
+    const [product, updateProduct] = useRecoilState(productState)
 
     function updateInput(key: string, value: string) {
-        updateProduct({...product, [key]: value })
+        updateNewProduct({ ...newProduct, [key]: value });
     }
 
-    async function createProduct () {
+
+    async function createProd() {
         try {
-            const { data }: any = await API.graphql(graphqlOperation(listProducts))
-        } catch (error) {
-            console.log('Error creating product', error)
-        }
+            const newItem = { ...newProduct };
+            updateProduct([...product, newItem]);
+            updateNewProduct(initialState);
+            await API.graphql(graphqlOperation(createProduct, { input: newItem }));
+          } catch (error) {
+            console.log("Error creating product:", error);
+          }
     }
 
   return (
@@ -33,7 +40,7 @@ export default function Form() {
         <RB.FormGroup>
             <RB.FormControl
             className='formControl'
-            value=''
+            value={newProduct.name}
             type='text'
             onChange={(e) => updateInput('name', e.target.value)} 
             placeholder='name' />
@@ -41,7 +48,7 @@ export default function Form() {
         <RB.FormGroup>
             <RB.FormControl
             className='formControl'
-            value=''
+            value={newProduct.description}
             type='text'
             onChange={(e) => updateInput('description', e.target.value)} 
             placeholder='description' />
@@ -49,7 +56,7 @@ export default function Form() {
         <RB.FormGroup>
             <RB.FormControl
             className='formControl'
-            value=''
+            value={newProduct.image}
             type='text'
             onChange={(e) => updateInput('image', e.target.value)} 
             placeholder='image url' />
@@ -57,7 +64,7 @@ export default function Form() {
         <RB.FormGroup>
             <RB.FormControl
             className='formControl'
-            value=''
+            value={newProduct.price}
             type='number'
             onChange={(e) => updateInput('price', e.target.value)} 
             placeholder='price' />
@@ -65,12 +72,15 @@ export default function Form() {
         <RB.FormGroup>
             <RB.FormControl
             className='formControl'
-            value=''
+            value={newProduct.category}
             type='text'
             onChange={(e) => updateInput('category', e.target.value)} 
             placeholder='category' />
         </RB.FormGroup>
-        <RB.Button className='addProdBtn' variant='success'>
+        <RB.Button
+            onClick={createProd}
+            className='addProdBtn'
+            variant='success'>
             Add product
         </RB.Button>
 
