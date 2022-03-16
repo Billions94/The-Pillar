@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Smooch+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
 
+
 #bo-container {
     margin-top: 20px;
     padding: 0 80px;
@@ -70,12 +71,24 @@
         background: white;
         color: black;
         width: 230px;
+        border-radius: 0;
+        transition-delay: ease-in 0.5s;
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 
         .btn-span {
             font-size: 20px;
-            font-weight: 400;
+            font-weight: 500;
             font-family: 'Bitter', serif;
             font-family: 'Smooch Sans', sans-serif;
         }
+    }
+
+    .addProdBtn:hover {
+        background: black;
+        letter-spacing: 3px;
+        color: white;
+        width: 230px;
+        animation-duration: 2s;
+        margin-left: 10px;
     }
 }
