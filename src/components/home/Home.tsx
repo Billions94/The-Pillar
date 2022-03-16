@@ -1,12 +1,28 @@
-import { useState, useEffect } from 'react'
 import * as RB from 'react-bootstrap'
-import { useRecoilValue } from 'recoil'
+import { API, graphqlOperation } from 'aws-amplify'
+import { useState, useEffect } from 'react'
+import { useRecoilState } from 'recoil'
+import { listProducts } from '../../graphql/queries'
 import { productState } from '../atoms'
 import './styles.scss'
 
 export default function Home() {
 
-  const product = useRecoilValue(productState)
+  const [product, updateProduct] = useRecoilState(productState)
+
+  async function getProduct() {
+    try {
+      const { data }: any = await API.graphql(graphqlOperation(listProducts))
+      const { items } = data.listProducts
+      updateProduct(items)
+    } catch (error) {
+      console.log('Error getting product from DB', error)
+    }
+  }
+
+  useEffect(() => {
+    getProduct()
+  }, [])
 
   return (
     <>

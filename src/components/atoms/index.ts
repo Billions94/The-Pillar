@@ -18,5 +18,5 @@ export interface Product {
 export const productState = atom<Product[] | any[]>({
     key: 'product',
     default: [],
-    // effects_UNSTABLE: [persistAtom]
+    effects_UNSTABLE: [persistAtom]
 })
