@@ -1,10 +1,10 @@
 import { Authenticator } from '@aws-amplify/ui-react';
-import './styles.css'
+import './styles.scss'
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-center">Suck my balls 🥜</h1>
+      <h1 className="text-center mt-5">Suck my balls 🥜</h1>
     </div>
   );
 }
