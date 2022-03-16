@@ -10,7 +10,9 @@ export default function NavBar() {
 
     return (
         <RB.Navbar id='myNavBar' bg="light">
-            <RB.Navbar.Brand onClick={() => navigate('/')}
+            <RB.Navbar.Brand 
+                className='brand'
+                onClick={() => navigate('/')}
                 style={{ cursor: 'pointer' }}>
                 <div className='brand-container'>
                     <RB.Image src={navbarBrand} alt='' width='35px' />
