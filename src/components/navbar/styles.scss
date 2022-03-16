@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Smooch+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
+
+#myNavBar {
+    padding: 8px 15px;
+
+    .brand-container {
+        display: flex;
+        align-items: center;
+
+        .d-text {
+            margin-left: 7px;
+            font-size: 25px;
+            font-weight: 700;
+            line-break: 18px;
+            font-family: 'Bitter', serif;
+            font-family: 'Smooch Sans', sans-serif;
+        }
+    }
+}

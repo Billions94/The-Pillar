@@ -1,5 +1,6 @@
 import * as RB from 'react-bootstrap'
 import { useState, useEffect } from 'react'
+import './styles.scss'
 
 export default function Form() {
 
