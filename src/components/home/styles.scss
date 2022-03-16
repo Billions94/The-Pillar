@@ -1,4 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Smooch+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
+
 #home {
+
+    .t-catalogue {
+        text-align: center;
+        font-size: 55px;
+        font-weight: 700;
+        line-break: 20px;
+        font-family: 'Bitter', serif;
+        font-family: 'Smooch Sans', sans-serif;
+    }
+
     .productCard {
         cursor: pointer;
         border: none;
@@ -16,6 +28,14 @@
             height: 275px;
             object-fit: contain;
             background: whitesmoke;
+        }
+
+        .t-text {
+            font-size: 18px;
+            font-weight: 400;
+            line-break: 18px;
+            font-family: 'Bitter', serif;
+            font-family: 'Smooch Sans', sans-serif;
         }
     }
 

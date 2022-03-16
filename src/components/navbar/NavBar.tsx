@@ -15,7 +15,7 @@ export default function NavBar() {
                 onClick={() => navigate('/')}
                 style={{ cursor: 'pointer' }}>
                 <div className='brand-container'>
-                    <RB.Image src={navbarBrand} alt='' width='35px' />
+                    <RB.Image src={navbarBrand} alt='' width='25px' />
                     <>
                         <span className='d-text'>Dagger</span>
                     </>

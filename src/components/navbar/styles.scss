@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Smooch+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
 
 #myNavBar {
+    position: sticky;
+    top: 0;
     padding: 8px 80px;
     justify-content: center;
 
