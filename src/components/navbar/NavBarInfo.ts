@@ -1,20 +1,22 @@
+import * as Icon from '../../lib'
+
 export const navBarInfo = [
     {
         title: 'Home',
         path: '/',
-        icon: '',
+        icon: Icon.homeIcon,
         className: ''
     },
     {
         title: 'Back Office',
         path: '/backoffice',
-        icon: '',
+        icon: Icon.boIcon,
         className: ''
     },
     {
         title: 'Sign In / Sign Up',
         path: '/signin',
-        icon: '',
+        icon: Icon.siginIcon,
         className: ''
     },
 ]
