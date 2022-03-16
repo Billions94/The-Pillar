@@ -16,4 +16,14 @@
             font-family: 'Smooch Sans', sans-serif;
         }
     }
+
+    .link-container {
+        display: flex;
+        justify-content: center;
+
+        .navLink {
+            color: black;
+        }
+    }
+
 }

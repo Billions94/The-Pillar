@@ -19,13 +19,14 @@ export default function NavBar() {
                     </>
                 </div>
             </RB.Navbar.Brand>
-            <>
+            <div className='link-container'>
                 {navBarInfo.map(item => (
-                    <RB.NavDropdown.Item onClick={() => navigate(`${item.path}`)}>
+                    <RB.Nav.Link className='navLink'
+                        onClick={() => navigate(`${item.path}`)}>
                         {item.title}
-                    </RB.NavDropdown.Item>
+                    </RB.Nav.Link>
                 ))}
-            </>
+            </div>
         </RB.Navbar>
     )
 }
