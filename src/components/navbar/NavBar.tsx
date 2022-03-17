@@ -1,6 +1,6 @@
 import * as RB from 'react-bootstrap'
 import { navbarBrand } from '../../lib'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { navBarInfo } from './NavBarInfo'
 import './styles.scss'
 
