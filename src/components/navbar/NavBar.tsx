@@ -25,7 +25,8 @@ export default function NavBar() {
                 {navBarInfo.map((item, idx) => (
                     <RB.Nav.Link key={idx} className='navLink'
                         onClick={() => navigate(`${item.path}`)}>
-                        {item.title}
+                        <RB.Image src={item.icon} alt='' width='23px' />
+                        <span>{item.title}</span>
                     </RB.Nav.Link>
                 ))}
             </div>
