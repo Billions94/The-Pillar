@@ -24,7 +24,28 @@ export default function Form() {
         updateNewProduct({ ...newProduct, [key]: value });
     }
 
+    function target(e: any) {
+        if (e.target && e.target.files[0]) {
+            const file = e.target.files[0]
+            console.log('This is the file', file)
 
+            Storage.put(file.name, file, {
+                contentType: 'image/png|image/jpeg'
+            }).then((response) => {
+                updateNewProduct({ ...newProduct, image: URL.createObjectURL(file)})
+
+                const image = {
+                    name: file.name,
+                    file: {
+                        bucket: awsExports.aws_user_files_s3_bucket,
+                        region: awsExports.aws_user_files_s3_bucket_region,
+                        key: 'public/' + file.name
+                    }
+                }
+                console.log('Sucessfully uploaded', image)
+            })
+        }
+    }
 
 
     async function createProd() {

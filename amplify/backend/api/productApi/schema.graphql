@@ -1,8 +1,3 @@
-type S3Object {
-  bucket: String!
-  region: String!
-  key: String!
-}
 
 type Product @model @auth(rules: [{ allow: owner, operations: [create, update, delete] }]) {
   id: ID!
