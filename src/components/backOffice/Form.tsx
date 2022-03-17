@@ -32,7 +32,7 @@ export default function Form() {
             updateNewProduct(initialState);
             await API.graphql(graphqlOperation(createProduct, { input: newItem }));
         } catch (error) {
-            console.log("Error creating product:", error);
+            console.log("Error creating product:", error); //
         }
     }
 
