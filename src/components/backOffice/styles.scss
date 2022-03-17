@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Smooch+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
 
-
+// --------------------------------------- B/O Styles -----------------------------------------
 #bo-container {
     margin-top: 20px;
     padding: 0 80px;
@@ -26,6 +26,8 @@
     }
 }
 
+
+// --------------------------------------- Form Styles -----------------------------------------
 .form-control {
     display: block;
     width: 100%;
@@ -52,7 +54,19 @@
         position: absolute;
         right: 0px;
         top: 5px;
-        border-radius: 0px;
+        border: none;
+    }
+
+    .select:active {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .select:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
     }
 
     .formControl:active {
