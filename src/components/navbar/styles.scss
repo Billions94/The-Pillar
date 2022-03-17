@@ -33,6 +33,23 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            .title {
+                align-items: center;
+                visibility: hidden;
+                font-size: 18px;
+                font-weight: 500;
+                line-break: 20px;
+                font-family: 'Bitter', serif;
+                font-family: 'Smooch Sans', sans-serif;
+                color: black;
+            }
+    
+        }
+
+        .navLink:hover .title {
+            align-items: center;
+            visibility: visible;
             font-size: 18px;
             font-weight: 500;
             line-break: 20px;
@@ -40,6 +57,7 @@
             font-family: 'Smooch Sans', sans-serif;
             color: black;
         }
+
     }
 
 }
