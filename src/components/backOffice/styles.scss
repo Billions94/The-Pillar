@@ -48,7 +48,12 @@
 }
 
 #form {
-
+    .select {
+        position: absolute;
+        right: 0px;
+        top: 5px;
+        border-radius: 0px;
+    }
 
     .formControl:active {
         border: none;

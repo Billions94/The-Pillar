@@ -61,13 +61,18 @@ export default function Form() {
                     onChange={(e) => updateInput('image', e.target.value)}
                     placeholder='image url' />
             </RB.FormGroup>
-            <RB.FormGroup>
+            <RB.FormGroup className='position-relative'>
                 <RB.FormControl
                     className='formControl'
                     value={newProduct.price}
-                    type='number'
+                    type='text'
                     onChange={(e) => updateInput('price', e.target.value)}
                     placeholder='price' />
+
+                <select className='select'>
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                </select>
             </RB.FormGroup>
             <RB.FormGroup>
                 <RB.FormControl
