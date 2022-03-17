@@ -1,10 +1,9 @@
 import * as RB from 'react-bootstrap'
 import { useState } from 'react'
-import { Storage, API, graphqlOperation } from 'aws-amplify'
+import { API, graphqlOperation } from 'aws-amplify'
 import { useRecoilState } from 'recoil'
 import { productState } from '../atoms'
 import { createProduct } from '../../graphql/mutations'
-import awsExports from '../../aws-exports'
 import './styles.scss'
 
 export default function Form() {
@@ -36,31 +35,6 @@ export default function Form() {
         }
     }
 
-    console.log('Main Image', newProduct.image);
-
-    const target = (e: any) => {
-        if (e.target && e.target.files[0]) {
-            const file = e.target.files[0]
-            console.log('Here is the image', file)
-
-            Storage.put(file.name, file, {
-                contentType: 'image/png|image/jpeg'
-            }).then((response) => {
-                updateNewProduct({ ...newProduct, image: URL.createObjectURL(file) })
-                console.log(response)
-                const image = {
-                    name: file.name,
-                    file: {
-                        bucket: awsExports.aws_user_files_s3_bucket,
-                        region: awsExports.aws_user_files_s3_bucket_region,
-                        public: 'public/' + file.name
-                    }
-                }
-                console.log('New image', image)
-            }).catch(err => console.log(err))
-        }
-    }
-
     return (
         <RB.Form id='form'>
             <RB.FormGroup>
@@ -82,8 +56,9 @@ export default function Form() {
             <RB.FormGroup>
                 <RB.FormControl
                     className='formControl'
-                    type='file'
-                    onChange={(e) => target(e)}
+                    value={newProduct.image}
+                    type='text'
+                    onChange={(e) => updateInput('image', e.target.value)}
                     placeholder='image url' />
             </RB.FormGroup>
             <RB.FormGroup className='position-relative'>

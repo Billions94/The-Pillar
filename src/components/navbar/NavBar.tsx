@@ -23,8 +23,8 @@ export default function NavBar() {
             </RB.Navbar.Brand>
             <div className='link-container'>
                 {navBarInfo.map((item, idx) => (
-                    <div key={idx} className='d-flex justify-content-between'>
-                        <RB.Nav.Link className='navLink'
+                    <div className='d-flex justify-content-between'>
+                        <RB.Nav.Link key={idx} className='navLink'
                             onClick={() => navigate(`${item.path}`)}>
                             <RB.Image src={item.icon} alt='' width='23px' />
                             <span className='title'>{item.title}</span>
