@@ -81,7 +81,7 @@ export default function Form() {
                 <RB.FormControl
                     className='formControl'
                     type='file'
-                    // onChange={(e) => target(e)}
+                    onChange={(e) => target(e)}
                     placeholder='image url' />
             </RB.FormGroup>
             <RB.FormGroup className='position-relative'>

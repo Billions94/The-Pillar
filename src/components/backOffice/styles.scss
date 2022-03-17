@@ -103,11 +103,33 @@
     }
 
     .addProdBtn:hover {
+        border: 1px solid black;
         background: black;
         letter-spacing: 3px;
         color: white;
         width: 230px;
         animation-duration: 2s;
-        margin-left: 10px;
+    }
+
+    .addProdBtn:active {
+        border: 1px solid black;
+        background: black;
+        letter-spacing: 3px;
+        color: white;
+        width: 230px;
+        box-shadow: none;
+        outline: none;
+
+    }
+
+    .addProdBtn:focus {
+        border: 1px solid black;
+        background: black;
+        letter-spacing: 3px;
+        color: white;
+        width: 230px;
+        box-shadow: none;
+        outline: none;
+
     }
 }
