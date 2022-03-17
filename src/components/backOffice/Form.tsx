@@ -1,10 +1,11 @@
 import * as RB from 'react-bootstrap'
 import { useState } from 'react'
-import { API, graphqlOperation } from 'aws-amplify'
+import { Storage, API, graphqlOperation } from 'aws-amplify'
 import { useRecoilState } from 'recoil'
 import { productState } from '../atoms'
 import { createProduct } from '../../graphql/mutations'
 import './styles.scss'
+import awsExports from '../../aws-exports'
 
 export default function Form() {
 
@@ -22,6 +23,8 @@ export default function Form() {
     function updateInput(key: string, value: string) {
         updateNewProduct({ ...newProduct, [key]: value });
     }
+
+
 
 
     async function createProd() {
@@ -56,9 +59,8 @@ export default function Form() {
             <RB.FormGroup>
                 <RB.FormControl
                     className='formControl'
-                    value={newProduct.image}
-                    type='text'
-                    onChange={(e) => updateInput('image', e.target.value)}
+                    type='file'
+                    // onChange={(e) => target(e)}
                     placeholder='image url' />
             </RB.FormGroup>
             <RB.FormGroup className='position-relative'>
