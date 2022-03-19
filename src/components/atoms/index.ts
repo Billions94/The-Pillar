@@ -10,9 +10,14 @@ const { persistAtom } = recoilPersist({
 export interface Product {
     name: string
     description: string
-    image: string
     price: string
     category: string
+    image: string
+    file: {
+        bucket: string
+        region: string
+        key: string
+    }
 }
 
 export const productState = atom<Product[] | any[]>({

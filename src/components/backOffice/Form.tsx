@@ -56,13 +56,12 @@ export default function Form() {
             const newItem = { ...newProduct }
             const imageFilePath = newProduct.file.key.split('/').slice(-1).join()
 
-            const imageUrl = await Storage.get(imageFilePath, { expires: 720 })
+            const imageUrl = await Storage.get(imageFilePath, { expires: 2400000 })
             newItem.image = imageUrl
-            console.log('newItem', newItem)
+    
             updateProduct([...product, newItem]);
             updateNewProduct(initialState);
 
-            console.log(imageUrl)
             await API.graphql(graphqlOperation(createProduct, { input: newItem }));
         } catch (error) {
             console.log("Error creating product:", error);
