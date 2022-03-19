@@ -29,18 +29,21 @@ export default function Home() {
   return (
     <RB.Row id='home' className='p-4'>
       <h1 className="t-catalogue mb-4">Catalogue </h1>
-      <RB.Col sm={10} md={3}>
-        {product.map((item, idx) => (
-          <RB.Card key={idx} className='productCard'>
-            <RB.Image src={item.image} alt='' width='100%' />
-            <RB.Card.Body>
-              <h6 className='t-text'>{item.name}</h6>
-              <h6 className='t-text'>{item.description}</h6>
-              <h6 className='t-text'>{item.price}</h6>
-              <h6 className='t-text'>{item.category}</h6>
-            </RB.Card.Body>
-          </RB.Card>
-        ))}
+      <RB.Col sm={10} md={5} className='d-flex'>
+          {product.map((item, idx) => (
+            <RB.Card key={idx} className='productCard'>
+              <RB.Card.Header>
+                <RB.Image src={item.image} alt=''
+                  style={{ width: '100%' }} />
+              </RB.Card.Header>
+              <RB.Card.Body>
+                <h6 className='t-text'>{item.name}</h6>
+                <h6 className='t-text'>{item.description}</h6>
+                <h6 className='t-text'>{item.price}</h6>
+                <h6 className='t-text'>{item.category}</h6>
+              </RB.Card.Body>
+            </RB.Card>
+          ))}
       </RB.Col>
     </RB.Row>
   )

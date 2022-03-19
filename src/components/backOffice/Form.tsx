@@ -56,7 +56,7 @@ export default function Form() {
             const newItem = { ...newProduct }
             const imageFilePath = newProduct.file.key.split('/').slice(-1).join()
 
-            const imageUrl = await Storage.get(imageFilePath, { expires: 2400000 })
+            const imageUrl = await Storage.get(imageFilePath, { expires: 10080 })
             newItem.image = imageUrl
     
             updateProduct([...product, newItem]);
