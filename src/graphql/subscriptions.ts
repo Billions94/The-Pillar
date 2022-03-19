@@ -8,9 +8,14 @@ export const onCreateProduct = /* GraphQL */ `
       id
       name
       description
-      image
       price
       category
+      image
+      file {
+        bucket
+        region
+        key
+      }
       createdAt
       updatedAt
     }
@@ -22,9 +27,14 @@ export const onUpdateProduct = /* GraphQL */ `
       id
       name
       description
-      image
       price
       category
+      image
+      file {
+        bucket
+        region
+        key
+      }
       createdAt
       updatedAt
     }
@@ -36,9 +46,14 @@ export const onDeleteProduct = /* GraphQL */ `
       id
       name
       description
-      image
       price
       category
+      image
+      file {
+        bucket
+        region
+        key
+      }
       createdAt
       updatedAt
     }

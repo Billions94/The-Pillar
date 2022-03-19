@@ -8,9 +8,14 @@ export const getProduct = /* GraphQL */ `
       id
       name
       description
-      image
       price
       category
+      image
+      file {
+        bucket
+        region
+        key
+      }
       createdAt
       updatedAt
     }
@@ -27,9 +32,14 @@ export const listProducts = /* GraphQL */ `
         id
         name
         description
-        image
         price
         category
+        image
+        file {
+          bucket
+          region
+          key
+        }
         createdAt
         updatedAt
       }

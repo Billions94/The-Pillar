@@ -1,5 +1,5 @@
 import * as RB from 'react-bootstrap'
-import { API, graphqlOperation } from 'aws-amplify'
+import { API, graphqlOperation, Storage } from 'aws-amplify'
 import { useState, useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { listProducts } from '../../graphql/queries'
@@ -19,6 +19,7 @@ export default function Home() {
       console.log('Error getting product from DB', error)
     }
   }
+
 
   useEffect(() => {
     getProduct()

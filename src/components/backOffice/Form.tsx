@@ -12,9 +12,14 @@ export default function Form() {
     const initialState = {
         name: '',
         description: '',
-        image: '',
         price: '',
-        category: ''
+        category: '',
+        image: '',
+        file: {
+            bucket: '',
+            region: '',
+            key: ''
+        }
     }
 
     const [newProduct, updateNewProduct] = useState(initialState)
@@ -30,32 +35,37 @@ export default function Form() {
             console.log('This is the file', file)
 
             Storage.put(file.name, file, {
-                contentType: 'image/png|image/jpeg'
+                contentType: 'image/png|image/jpeg|image/jpg'
             }).then((response) => {
-                updateNewProduct({ ...newProduct, image: URL.createObjectURL(file)})
-
                 const image = {
-                    name: file.name,
-                    file: {
-                        bucket: awsExports.aws_user_files_s3_bucket,
-                        region: awsExports.aws_user_files_s3_bucket_region,
-                        key: 'public/' + file.name
-                    }
+                    bucket: awsExports.aws_user_files_s3_bucket,
+                    region: awsExports.aws_user_files_s3_bucket_region,
+                    key: 'public/' + file.name
                 }
+                updateNewProduct({ ...newProduct, file: image })
                 console.log('Sucessfully uploaded', image)
             })
         }
     }
 
+    console.log('Image state', newProduct.file)
+
 
     async function createProd() {
         try {
-            const newItem = { ...newProduct };
+            const newItem = { ...newProduct }
+            const imageFilePath = newProduct.file.key.split('/').slice(-1).join()
+
+            const imageUrl = await Storage.get(imageFilePath, { expires: 720 })
+            newItem.image = imageUrl
+            console.log('newItem', newItem)
             updateProduct([...product, newItem]);
             updateNewProduct(initialState);
+
+            console.log(imageUrl)
             await API.graphql(graphqlOperation(createProduct, { input: newItem }));
         } catch (error) {
-            console.log("Error creating product:", error); //
+            console.log("Error creating product:", error);
         }
     }
 
