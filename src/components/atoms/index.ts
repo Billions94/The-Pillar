@@ -20,7 +20,7 @@ export interface Product {
     }
 }
 
-export const productState = atom<Product[] | any[]>({
+export const productState = atom<Product[]>({
     key: 'product',
     default: [],
     effects_UNSTABLE: [persistAtom]

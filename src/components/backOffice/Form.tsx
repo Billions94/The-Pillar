@@ -4,8 +4,8 @@ import { Storage, API, graphqlOperation } from 'aws-amplify'
 import { useRecoilState } from 'recoil'
 import { productState } from '../atoms'
 import { createProduct } from '../../graphql/mutations'
-import './styles.scss'
 import awsExports from '../../aws-exports'
+import './styles.scss'
 
 export default function Form() {
 
