@@ -11,6 +11,6 @@ export const cardInfo: CardInfor[] = [
     },
     {
         img: Icon.editProdIcon,
-        description: 'Edit a new product to the catalogue'
+        description: 'Edit a product from the catalogue'
     },
 ]

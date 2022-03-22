@@ -5,6 +5,7 @@
     top: 0;
     padding: 8px 80px;
     justify-content: center;
+    // background: lightgrey;
 
     .brand {
         margin-right: auto;
@@ -29,6 +30,25 @@
         display: flex;
         justify-content: center;
 
+        .darkModeBtn {
+            background: transparent;
+            border: none;
+        }
+
+        .darkModeBtn:active {
+            background: transparent;
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+
+        .darkModeBtn:focus {
+            background: transparent;
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+
         .navLink {
             display: flex;
             flex-direction: column;
@@ -44,6 +64,16 @@
                 font-family: 'Smooch Sans', sans-serif;
                 color: black;
             }
+
+            .title-dark {
+                align-items: center;
+                visibility: hidden;
+                font-size: 18px;
+                font-weight: 500;
+                line-break: 20px;
+                font-family: 'Bitter', serif;
+                font-family: 'Smooch Sans', sans-serif;
+            }
     
         }
 
@@ -54,8 +84,18 @@
             font-weight: 500;
             line-break: 20px;
             font-family: 'Bitter', serif;
+            font-family: 'Smooch Sans', sans-serif;  
+        }
+
+        .navLink:hover .title-dark {
+            align-items: center;
+            visibility: visible;
+            font-size: 18px;
+            font-weight: 500;
+            line-break: 20px;
+            font-family: 'Bitter', serif;
             font-family: 'Smooch Sans', sans-serif;
-            color: black;
+            color: white; 
         }
 
     }

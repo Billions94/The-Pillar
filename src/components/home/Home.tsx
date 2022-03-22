@@ -1,6 +1,6 @@
 import * as RB from 'react-bootstrap'
-import { API, graphqlOperation, Storage } from 'aws-amplify'
-import { useState, useEffect } from 'react'
+import { API, graphqlOperation } from 'aws-amplify'
+import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { listProducts } from '../../graphql/queries'
 import { productState } from '../atoms'
@@ -20,7 +20,7 @@ export default function Home() {
     }
   }
 
-  
+
 
   console.log(product)
 
@@ -32,7 +32,8 @@ export default function Home() {
     <RB.Row id='home' className='p-4'>
       <h1 className="t-catalogue mb-4">Catalogue </h1>
       <RB.Col sm={10} md={5} className='d-flex'>
-          {product.map((item, idx) => (
+        {product.map((item, idx) => (
+          <div>
             <RB.Card key={idx} className='productCard'>
               <RB.Card.Header>
                 <RB.Image src={item.image} alt=''
@@ -45,7 +46,8 @@ export default function Home() {
                 <h6 className='t-text'>{item.category}</h6>
               </RB.Card.Body>
             </RB.Card>
-          ))}
+          </div>
+        ))}
       </RB.Col>
     </RB.Row>
   )

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import * as RB from 'react-bootstrap'
 import Form from './Form'
+import Card from './Card'
 import './styles.scss'
 
 export default function BackOffice() {
@@ -11,17 +12,8 @@ export default function BackOffice() {
   return (
     <RB.Row id='bo-container'>
       <h2 className='t-BO mb-5'>BackOffice</h2>
-      <div>
-        <div>
-          <RB.Card>
-            <RB.Card.Header>
-              <RB.Image src={'c'} alt='' />
-            </RB.Card.Header>
-            <RB.Card.Body>
-
-            </RB.Card.Body>
-          </RB.Card>
-        </div>
+      <div className='card-container'>
+        <Card />
       </div>
       <>
         {newProd === false ? null :

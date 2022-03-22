@@ -25,3 +25,9 @@ export const productState = atom<Product[]>({
     default: [],
     effects_UNSTABLE: [persistAtom]
 })
+
+export const darkModeState = atom<true | false>({
+    key: 'darkmode',
+    default: false,
+    effects_UNSTABLE: [persistAtom]
+})
