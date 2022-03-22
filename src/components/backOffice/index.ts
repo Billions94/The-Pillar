@@ -1,4 +1,4 @@
-
+import * as Icon from '../../lib'
 interface CardInfor {
     img: string
     description: string
@@ -6,11 +6,11 @@ interface CardInfor {
 
 export const cardInfo: CardInfor[] = [
     {
-        img: '',
-        description: ''
+        img: Icon.newProdIcon,
+        description: 'Add a new product to the catalogue'
     },
     {
-        img: '',
-        description: ''
+        img: Icon.editProdIcon,
+        description: 'Edit a new product to the catalogue'
     },
 ]

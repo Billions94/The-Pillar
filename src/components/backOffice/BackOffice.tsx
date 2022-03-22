@@ -18,13 +18,13 @@ export default function BackOffice() {
               <RB.Image src={'c'} alt='' />
             </RB.Card.Header>
             <RB.Card.Body>
-              
+
             </RB.Card.Body>
           </RB.Card>
         </div>
       </div>
       <>
-        {editProd === false ? null :
+        {newProd === false ? null :
           <>
             <h5 className='t-addNewProd mb-3'>Add a new product to the catalogue</h5>
             <RB.Col md={6}>
@@ -32,9 +32,9 @@ export default function BackOffice() {
             </RB.Col>
           </>
         }
-        {newProd === false ? null :
+        {editProd === false ? null :
           <>
-            <h5 className='t-addNewProd mb-3'>Add a new product to the catalogue</h5>
+            <h5 className='t-addNewProd mb-3'>Edit a new product to the catalogue</h5>
             <RB.Col md={6}>
               <Form />
             </RB.Col>
