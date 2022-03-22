@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Smooch+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
 
+.light {
+    background: rgba(248, 249, 250, 0.753);
+}
+
+.dark {
+    background: rgba(37, 37, 37, 0.753) !important;
+}
+
 #myNavBar {
     position: sticky;
     top: 0;
     padding: 8px 80px;
     justify-content: center;
+    z-index: 10;
     // background: lightgrey;
+
 
     .brand {
         margin-right: auto;
@@ -21,6 +31,16 @@
                 line-break: 18px;
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
+            }
+
+            .d-textDark {
+                margin-left: 7px;
+                font-size: 25px;
+                font-weight: 700;
+                line-break: 18px;
+                font-family: 'Bitter', serif;
+                font-family: 'Smooch Sans', sans-serif;
+                color: white;
             }
         }
     }
@@ -74,7 +94,7 @@
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
             }
-    
+
         }
 
         .navLink:hover .title {
@@ -84,7 +104,7 @@
             font-weight: 500;
             line-break: 20px;
             font-family: 'Bitter', serif;
-            font-family: 'Smooch Sans', sans-serif;  
+            font-family: 'Smooch Sans', sans-serif;
         }
 
         .navLink:hover .title-dark {
@@ -95,7 +115,7 @@
             line-break: 20px;
             font-family: 'Bitter', serif;
             font-family: 'Smooch Sans', sans-serif;
-            color: white; 
+            color: white;
         }
 
     }

@@ -1,14 +1,16 @@
 import * as RB from 'react-bootstrap'
 import { API, graphqlOperation } from 'aws-amplify'
 import { useEffect } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { listProducts } from '../../graphql/queries'
-import { productState } from '../atoms'
+import { darkModeState, productState } from '../atoms'
 import './styles.scss'
 
 export default function Home() {
 
   const [product, updateProduct] = useRecoilState(productState)
+  const darkMode = useRecoilValue(darkModeState)
+  const check: boolean = darkMode === false
 
   async function getProduct() {
     try {
@@ -29,7 +31,7 @@ export default function Home() {
   }, [])
 
   return (
-    <RB.Row id='home' className='p-4'>
+    <RB.Row id={check ? 'home' : 'homeDark'} className='p-4'>
       <h1 className="t-catalogue mb-4">Catalogue </h1>
       <RB.Col sm={10} md={5} className='d-flex'>
         {product.map((item, idx) => (

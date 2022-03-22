@@ -1,10 +1,9 @@
 import * as RB from 'react-bootstrap'
 import * as Icon from '../../lib'
-import { navbarBrand } from '../../lib'
 import { useNavigate } from 'react-router-dom'
 import { navBarInfo } from './NavBarInfo'
 import { darkModeState } from '../atoms'
-import { SetterOrUpdater, useRecoilState } from 'recoil'
+import { useRecoilState } from 'recoil'
 import './styles.scss'
 
 export default function NavBar() {
@@ -15,16 +14,18 @@ export default function NavBar() {
         darkMode === false ? setDarkMode(true) : setDarkMode(false)
     }
 
+    const check: boolean = darkMode === false
+
     return (
-        <RB.Navbar id='myNavBar' bg={darkMode === false ? 'light' : 'dark'}>
+        <RB.Navbar id='myNavBar' className={check ? 'light' : 'dark'}>
             <RB.Navbar.Brand
                 className='brand'
                 onClick={() => navigate('/')}
                 style={{ cursor: 'pointer' }}>
                 <div className='brand-container'>
-                    <RB.Image src={navbarBrand} alt='' width='25px' />
+                    <RB.Image src={check ? Icon.navbarBrand : Icon.navbarBrandDark} alt='' width='25px' />
                     <>
-                        <span className='d-text'>Dagger</span>
+                        <span className={check ? 'd-text' : 'd-textDark'}>Dagger</span>
                     </>
                 </div>
             </RB.Navbar.Brand>
@@ -32,15 +33,15 @@ export default function NavBar() {
                 <div>
                     <RB.Button onClick={toggle}
                         className='darkModeBtn'>
-                        <RB.Image src={darkMode === false ? Icon.moon : Icon.sun} alt='' width='25px' />
+                        <RB.Image src={check ? Icon.moon : Icon.sun} alt='' width='25px' />
                     </RB.Button>
                 </div>
                 {navBarInfo.map((item, idx) => (
                     <div key={idx} className='d-flex justify-content-between'>
                         <RB.Nav.Link className='navLink'
                             onClick={() => navigate(`${item.path}`)}>
-                            <RB.Image src={darkMode === false ? item.icon: item.iconDark} alt='' width='23px' />
-                            <span className={darkMode === false ? 'title' : 'title-dark'}>
+                            <RB.Image src={check ? item.icon: item.iconDark} alt='' width='23px' />
+                            <span className={check ? 'title' : 'title-dark'}>
                                 {item.title}
                             </span>
                         </RB.Nav.Link>
