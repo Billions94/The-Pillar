@@ -2,9 +2,9 @@
 
 // --------------------------------------- B/O Styles -----------------------------------------
 #bo-container {
-    margin-top: 20px;
-    padding: 0 80px;
+    padding: 20px 80px;
     justify-content: center;
+    min-height: 89vh;
 
     .t-BO {
         text-align: center;
@@ -32,6 +32,7 @@
         .card-holder {
             margin-right: 20px;
             max-width: 200px;
+            max-height: 200px;
             transition-delay: ease-in 0.5s;
             transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             box-shadow: 0px 0px 5px #939393;
@@ -39,6 +40,34 @@
             .card {
                 width: 100%;
                 border-radius: 0px;
+
+
+                .card-header {
+                    padding: 10px;
+                    border-radius: 0px;
+
+                    .card-img {
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 0px;
+                    }
+                }
+            }
+        }
+
+        .card-holderDark {
+            margin-right: 20px;
+            max-width: 200px;
+            max-height: 200px;
+            transition-delay: ease-in 0.5s;
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            background: rgb(44, 44, 44);
+            box-shadow: 0px 0px 5px #939393;
+
+            .card {
+                width: 100%;
+                border-radius: 0px;
+
 
                 .card-header {
                     padding: 10px;
@@ -57,7 +86,6 @@
     .card-holder:hover {
         padding: 0px;
         flex-shrink: 1;
-        overflow: hidden;
         position: relative;
         border-radius: 0.2rem;
         transform: translateY(-4px);

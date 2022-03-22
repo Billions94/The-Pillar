@@ -38,10 +38,10 @@ export default function Home() {
           <div>
             <RB.Card key={idx} className='productCard'>
               <RB.Card.Header>
-                <RB.Image src={item.image} alt=''
+                <RB.Image src={item.image} alt='card-header'
                   style={{ width: '100%' }} />
               </RB.Card.Header>
-              <RB.Card.Body>
+              <RB.Card.Body className='card-body'>
                 <h6 className='t-text'>{item.name}</h6>
                 <h6 className='t-text'>{item.description}</h6>
                 <h6 className='t-text'>{item.price}</h6>
