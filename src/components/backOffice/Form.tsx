@@ -54,10 +54,13 @@ export default function Form() {
     async function createProd() {
         try {
             const newItem = { ...newProduct }
-            const imageFilePath = newProduct.file.key.split('/').slice(-1).join()
 
-            const imageUrl = await Storage.get(imageFilePath, { expires: 10080 })
-            newItem.image = imageUrl
+            if(newProduct.image === null || undefined) { 
+                const imageFilePath = newProduct.file.key.split('/').slice(-1).join()
+    
+                const imageUrl = await Storage.get(imageFilePath, { expires: 10080 })
+                newItem.image = imageUrl
+            }
     
             updateProduct([...product, newItem]);
             updateNewProduct(initialState);
@@ -85,6 +88,13 @@ export default function Form() {
                     type='text'
                     onChange={(e) => updateInput('description', e.target.value)}
                     placeholder='description' />
+            </RB.FormGroup>
+            <RB.FormGroup>
+                <RB.FormControl
+                    className='formControl'
+                    type='text'
+                    onChange={(e) => updateInput('image', e.target.value)}
+                    placeholder='image url' />
             </RB.FormGroup>
             <RB.FormGroup>
                 <RB.FormControl
