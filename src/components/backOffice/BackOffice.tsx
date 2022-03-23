@@ -15,10 +15,18 @@ export default function BackOffice() {
 
   return (
     <RB.Row id='bo-container'>
-      <h2 className='t-BO mb-1'>BackOffice</h2>
-      <div className='card-container'>
-        <Card />
-      </div>
+      <h2 className={check ? 't-BO mb-1' : 't-BO-Dark mb-1'}>BackOffice</h2>
+      <>
+        { newProd || editProd === true ? null :
+          <div className='card-container'>
+            <Card
+              newProd={newProd}
+              editProd={editProd}
+              setNewProd={setNewProd}
+              setEditProd={setEditProd} />
+          </div>
+        }
+      </>
       <>
         {newProd === false ? null :
           <>
