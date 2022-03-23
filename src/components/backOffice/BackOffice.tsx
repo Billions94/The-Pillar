@@ -67,13 +67,15 @@ export default function BackOffice() {
                     </RB.Card>
                   </div>
                 ))} */}
-                <ProdCard
-                  newProd={newProd}
-                  editProd={editProd}
-                  setNewProd={setNewProd}
-                  setEditProd={setEditProd}
-                  setModalShow={setModalShow} />
-                <EditModal  modalShow={modalShow} setModalShow={setModalShow} />
+                <>
+                  <ProdCard
+                    newProd={newProd}
+                    editProd={editProd}
+                    setNewProd={setNewProd}
+                    setEditProd={setEditProd}
+                    setModalShow={setModalShow} />
+                </>
+                <EditModal modalShow={modalShow} setModalShow={setModalShow} />
               </div>
             </RB.Col>
           </>

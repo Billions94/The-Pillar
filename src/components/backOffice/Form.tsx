@@ -5,7 +5,7 @@ import { Storage, API, graphqlOperation } from 'aws-amplify'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { createProduct, updateProduct } from '../../graphql/mutations'
 import awsExports from '../../aws-exports'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import './styles.scss'
 
 
@@ -28,6 +28,8 @@ export default function Form() {
     const [product, updateProduct] = useRecoilState(Atom.productState)
     const darkMode = useRecoilValue(Atom.darkModeState)
     const check: boolean = darkMode === false
+
+    const navigate = useNavigate()
 
     function updateInput(key: string, value: string) {
         updateNewProduct({ ...newProduct, [key]: value });
@@ -65,7 +67,7 @@ export default function Form() {
 
             updateProduct([...product, newItem]);
             updateNewProduct(initialState);
-
+            navigate('/')
             await API.graphql(graphqlOperation(createProduct, { input: newItem }));
         } catch (error) {
             console.log("Error creating product:", error);
@@ -267,7 +269,6 @@ export function UpdateForm() {
                 <RB.FormControl
                     className={check ? 'formControl' : 'formControl-Dark'}
                     type='file'
-                    value={newProduct.image}
                     onChange={(e) => target(e)}
                     placeholder='image url' />
             </RB.FormGroup>

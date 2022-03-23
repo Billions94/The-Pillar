@@ -30,25 +30,27 @@ export default function Home() {
 
   return (
     <RB.Row id={check ? 'home' : 'homeDark'} className='p-4'>
-      {/* <h1 className="t-catalogue mb-4">Catalogue </h1>
-      <RB.Col sm={10} md={5} className='d-flex'>
-        {!product ? null : product.map((item, idx) => (
-          <div key={idx}>
-            <RB.Card className='productCard'>
-              <RB.Card.Header>
-                <RB.Image src={item.image} alt='card-header'
-                  style={{ width: '100%' }} />
-              </RB.Card.Header>
-              <RB.Card.Body className='card-body'>
-                <h6 className='t-text'>{item.name}</h6>
-                <h6 className='t-text'>{item.description}</h6>
-                <h6 className='t-text'>{item.price}</h6>
-                <h6 className='t-text'>{item.category}</h6>
-              </RB.Card.Body>
-            </RB.Card>
-          </div>
-        ))}
-      </RB.Col> */}
+      <h1 className="t-catalogue mb-4">Catalogue </h1>
+      <RB.Col md={10} lg={10}>
+        <div className='card-container'>
+          <>
+            {!product ? null : product.map((item, idx) => (
+              <RB.Card key={idx} className='productCard'>
+                <RB.Card.Header className='card-header'>
+                  <RB.Image src={item.image} alt='image'
+                    className='card-img'/>
+                </RB.Card.Header>
+                <RB.Card.Body className='card-body'>
+                  <h6 className='t-text'>{item.name}</h6>
+                  <h6 className='t-text'>{item.description}</h6>
+                  <h6 className='t-text'>{item.price}</h6>
+                  <h6 className='t-text'>{item.category}</h6>
+                </RB.Card.Body>
+              </RB.Card>
+            ))}
+          </>
+        </div>
+      </RB.Col>
     </RB.Row>
   )
 }
