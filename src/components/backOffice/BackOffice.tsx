@@ -51,7 +51,28 @@ export default function BackOffice() {
             </h5>
             <RB.Col md={6}>
               <div>
-                {/* {products.map((item, idx) => (
+                <div className='card-container'>
+                  <ProdCard
+                    newProd={newProd}
+                    editProd={editProd}
+                    setNewProd={setNewProd}
+                    setEditProd={setEditProd}
+                    setModalShow={setModalShow} />
+                </div>
+                <EditModal modalShow={modalShow} setModalShow={setModalShow} />
+              </div>
+            </RB.Col>
+          </>
+        }
+      </>
+    </RB.Row>
+  )
+}
+
+
+
+
+{/* {products.map((item, idx) => (
                   <div key={idx} className={check ? 'card-holder' : 'card-holderDark'}>
                     <RB.Card onClick={() => toggle(idx)}
                       className='card'>
@@ -66,21 +87,4 @@ export default function BackOffice() {
                       </RB.Card.Body>
                     </RB.Card>
                   </div>
-                ))} */}
-                <>
-                  <ProdCard
-                    newProd={newProd}
-                    editProd={editProd}
-                    setNewProd={setNewProd}
-                    setEditProd={setEditProd}
-                    setModalShow={setModalShow} />
-                </>
-                <EditModal modalShow={modalShow} setModalShow={setModalShow} />
-              </div>
-            </RB.Col>
-          </>
-        }
-      </>
-    </RB.Row>
-  )
-}
+))} */}
