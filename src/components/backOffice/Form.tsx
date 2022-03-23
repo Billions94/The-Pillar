@@ -230,8 +230,8 @@ export function UpdateForm() {
             updateProducts(newProd);
             updateNewProduct(initialState);
             setModalShow(false);
-            navigate('/')
             setRefresh(true)
+            navigate('/')
         } catch (error) {
             console.log('Unable to update product', error)
         }
