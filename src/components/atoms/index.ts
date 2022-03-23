@@ -20,7 +20,7 @@ export interface Product {
     }
 }
 
-export const productState = atom<Product[]>({
+export const productState = atom<Product[] | any[]>({
     key: 'product',
     default: [],
     effects_UNSTABLE: [persistAtom]
@@ -28,6 +28,12 @@ export const productState = atom<Product[]>({
 
 export const darkModeState = atom<true | false>({
     key: 'darkmode',
+    default: false,
+    effects_UNSTABLE: [persistAtom]
+})
+
+export const modalState = atom<true | false>({
+    key: 'modal',
     default: false,
     effects_UNSTABLE: [persistAtom]
 })

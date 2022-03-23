@@ -2,8 +2,8 @@ import * as RB from 'react-bootstrap'
 import { useState } from 'react'
 import { Storage, API, graphqlOperation } from 'aws-amplify'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { darkModeState, productState } from '../atoms'
-import { createProduct } from '../../graphql/mutations'
+import { darkModeState, modalState, productState } from '../atoms'
+import { createProduct, updateProduct } from '../../graphql/mutations'
 import awsExports from '../../aws-exports'
 import './styles.scss'
 
@@ -163,11 +163,12 @@ export function UpdateForm() {
 
     const [newProduct, updateNewProduct] = useState(initialState)
     const [products, updateProducts] = useRecoilState(productState)
+    const [modalShow, setModalShow] = useRecoilState(modalState)
     const [selected, updateSelected] = useState(0)
+
     const index = products.findIndex((p, idx) => idx === selected)
 
     const productToUpdate = products[index]
-    console.log('Product to update', productToUpdate)
 
     const darkMode = useRecoilValue(darkModeState)
     const check: boolean = darkMode === false
@@ -197,7 +198,24 @@ export function UpdateForm() {
 
     async function update() {
         try {
-            
+            const prod = { ...productToUpdate };
+            // Appending the data from the form to the existing song
+            prod.name = newProduct.name
+            prod.description = newProduct.description
+            prod.price = newProduct.price
+            prod.category = newProduct.category
+            prod.image = newProduct.image
+            // Deleting these information because they are handled by graphql
+            delete prod.createdAt;
+            delete prod.updatedAt;
+            delete prod.owner;
+      
+            const { data }: any = await API.graphql(graphqlOperation(updateProduct, { input: prod }));
+            const newProd = [...products];
+            newProd[index] = data.updateSong;
+            updateProducts(newProd);
+            updateNewProduct(initialState);
+            setModalShow(false);
         } catch (error) {
             console.log('Unable to update product', error)
         }
@@ -225,6 +243,7 @@ export function UpdateForm() {
                 <RB.FormControl
                     className={check ? 'formControl' : 'formControl-Dark'}
                     type='text'
+                    value={newProduct.image}
                     onChange={(e) => updateInput('image', e.target.value)}
                     placeholder='image url' />
             </RB.FormGroup>
@@ -260,17 +279,17 @@ export function UpdateForm() {
                 {!newProduct.category ?
                     <RB.Button
                         disabled
-                        onClick={update}
+                        onClick={() => update()}
                         className={check ? 'addProdBtn' : 'addProdBtn-dark'}
                         variant='success'>
                         <span className='btn-span'>Add product</span>
                     </RB.Button>
                     :
                     <RB.Button
-                        onClick={update}
+                        onClick={() => update()}
                         className={check ? 'addProdBtn' : 'addProdBtn-dark'}
                         variant='success'>
-                        <span className='btn-span'>Add product</span>
+                        <span className='btn-span'>Update product</span>
                     </RB.Button>
                 }
             </div>

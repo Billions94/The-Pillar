@@ -1,11 +1,11 @@
 import * as RB from 'react-bootstrap'
 import React, { SetStateAction } from 'react'
-import Form from './Form'
+import { UpdateForm } from './Form'
 import { useRecoilValue } from 'recoil'
 import { darkModeState } from '../atoms'
 
 interface EditModalProps {
-    index: number
+    index?: number
     modalShow: boolean
     setModalShow: React.Dispatch<SetStateAction<boolean>>
 }
@@ -33,7 +33,7 @@ export default function EditModal({ index, modalShow, setModalShow }: EditModalP
                     </div>
                 </RB.Modal.Header>
                 <RB.Modal.Body>
-                    <Form />
+                    <UpdateForm  />
                 </RB.Modal.Body>
                 {/* <RB.Modal.Footer>
                     <RB.Button>Update</RB.Button>

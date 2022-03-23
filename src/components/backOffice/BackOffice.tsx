@@ -3,7 +3,7 @@ import * as RB from 'react-bootstrap'
 import Form from './Form'
 import Card, { ProdCard } from './Card'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { darkModeState, productState } from '../atoms'
+import { darkModeState, productState, modalState } from '../atoms'
 import EditModal from './EditModal'
 import './styles.scss'
 
@@ -11,13 +11,13 @@ export default function BackOffice() {
 
   const [newProd, setNewProd] = useState(false)
   const [editProd, setEditProd] = useState(false)
-  const [modalShow, setModalShow] = useState(false)
+  const [modalShow, setModalShow] = useRecoilState(modalState)
   const [products, updateProducts] = useRecoilState(productState)
   const [selected, updateSelected] = useState(0)
   const darkMode = useRecoilValue(darkModeState)
   const check: boolean = darkMode === false
 
-  const productIndex = products.findIndex((p, idx) => idx === selected)
+  // const productIndex = products.findIndex((p, idx) => idx === selected)
 
   return (
     <RB.Row id='bo-container'>
@@ -73,7 +73,7 @@ export default function BackOffice() {
                   setNewProd={setNewProd}
                   setEditProd={setEditProd}
                   setModalShow={setModalShow} />
-                <EditModal index={productIndex} modalShow={modalShow} setModalShow={setModalShow} />
+                <EditModal  modalShow={modalShow} setModalShow={setModalShow} />
               </div>
             </RB.Col>
           </>

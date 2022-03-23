@@ -35,8 +35,8 @@ export default function Home() {
       <h1 className="t-catalogue mb-4">Catalogue </h1>
       <RB.Col sm={10} md={5} className='d-flex'>
         {product.map((item, idx) => (
-          <div>
-            <RB.Card key={idx} className='productCard'>
+          <div key={idx}>
+            <RB.Card className='productCard'>
               <RB.Card.Header>
                 <RB.Image src={item.image} alt='card-header'
                   style={{ width: '100%' }} />
