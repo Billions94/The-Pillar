@@ -8,19 +8,22 @@ const { persistAtom } = recoilPersist({
 })
 
 export interface Product {
-    name: string
-    description: string
-    price: string
-    category: string
-    image: string
-    file: {
+    name?: string
+    description?: string
+    price?: string
+    category?: string
+    image?: string
+    file?: {
         bucket: string
         region: string
         key: string
     }
+    createdAt?: Date
+    updatedAt?: Date
+    owner?: string
 }
 
-export const productState = atom<Product[] | any[]>({
+export const productState = atom<Product[]>({
     key: 'product',
     default: [],
     effects_UNSTABLE: [persistAtom]
@@ -51,7 +54,7 @@ export const refreshState = atom<true | false>({
 })
 
 export const selectedState = atom<number>({
-    key: 'refresh',
+    key: 'select',
     default: 0,
     effects_UNSTABLE: [persistAtom]
 })

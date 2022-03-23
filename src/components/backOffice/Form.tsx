@@ -3,11 +3,10 @@ import * as Atom from '../atoms'
 import { useState } from 'react'
 import { Storage, API, graphqlOperation } from 'aws-amplify'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { createProduct, updateProduct } from '../../graphql/mutations'
+import { createProduct, updateProduct, deleteProduct } from '../../graphql/mutations'
 import awsExports from '../../aws-exports'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './styles.scss'
-import AlertModal from './modals/AlertModal'
 
 
 export default function Form() {
@@ -151,6 +150,18 @@ export default function Form() {
     )
 }
 
+export const initialState = {
+    name: '',
+    description: '',
+    price: '',
+    category: '',
+    image: '',
+    file: {
+        bucket: '',
+        region: '',
+        key: ''
+    }
+}
 
 export function UpdateForm() {
     const initialState = {
@@ -231,7 +242,7 @@ export function UpdateForm() {
 
             const { data }: any = await API.graphql(graphqlOperation(updateProduct, { input: prod }));
             const newProd = [...products];
-            newProd[index] = data.updateSong;
+            newProd[index] = data.updateProduct;
             updateProducts(newProd);
             updateNewProduct(initialState);
             setModalShow(false);
@@ -242,20 +253,23 @@ export function UpdateForm() {
         }
     }
 
-    async function deleteProduct() {
-        try {
-            const productToDelete = productToUpdate
-            delete productToDelete.name
-            delete productToDelete.description
-            delete productToDelete.price
-            delete productToDelete.category
-            delete productToDelete.image
-            delete productToDelete.file
-            delete productToDelete.createdAt
-            delete productToDelete.updatedAt
-            delete productToDelete.owner
 
-            await API.graphql(graphqlOperation(deleteProduct, { input: productToDelete }))
+
+    async function erase() {
+        try {
+            const product = productToUpdate
+            
+            delete product.name
+            delete product.description
+            delete product.price
+            delete product.category
+            delete product.image
+            delete product.file
+            delete product.createdAt
+            delete product.updatedAt
+            delete product.owner
+
+            await API.graphql(graphqlOperation(deleteProduct, { input: product }))
             updateNewProduct(initialState);
             setModalShow(false);
         } catch (error) {
@@ -336,7 +350,7 @@ export function UpdateForm() {
                 }
 
                 <RB.Button
-                    onClick={deleteProduct}
+                    onClick={erase}
                     className={check ? 'delProdBtn' : 'delProdBtn-dark'}
                     style={{ marginLeft: '10px'}}
                     variant='success'>

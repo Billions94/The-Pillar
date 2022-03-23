@@ -59,6 +59,7 @@ export function ProdCard({ setModalShow }: CardProps) {
        updateSelected(idx)
     }
 
+
     return (
         <>
             {products.map((item, idx) => (
