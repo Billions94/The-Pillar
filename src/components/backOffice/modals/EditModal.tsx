@@ -1,8 +1,8 @@
 import * as RB from 'react-bootstrap'
 import React, { SetStateAction } from 'react'
-import { UpdateForm } from './Form'
+import { UpdateForm } from '../Form'
 import { useRecoilValue } from 'recoil'
-import { darkModeState } from '../atoms'
+import { darkModeState } from '../../atoms'
 
 interface EditModalProps {
     index?: number

@@ -4,7 +4,7 @@ import Form from './Form'
 import Card, { ProdCard } from './Card'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { darkModeState, productState, modalState } from '../atoms'
-import EditModal from './EditModal'
+import EditModal from './modals/EditModal'
 import './styles.scss'
 
 export default function BackOffice() {
@@ -19,7 +19,7 @@ export default function BackOffice() {
 
   const productIndex = products.findIndex((p, idx) => idx === selected)
 
-  
+
 
   return (
     <RB.Row id='bo-container'>
