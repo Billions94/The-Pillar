@@ -40,10 +40,13 @@ export default function NavBar() {
                     <div key={idx} className=''>
                         <RB.Nav.Link className='navLink'
                             onClick={() => navigate(`${item.path}`)}>
-                            {/* <RB.Image src={check ? item.icon: item.iconDark} alt='' width='23px' /> */}
                             <span className={check ? 'title' : 'title-dark'}>
                                 {item.title}
                             </span>
+                            <span className='icon'>●</span>
+                            {/* <RB.Image src={check ? item.icon: item.iconDark} 
+                                className='icon'
+                                alt='' width='8px' /> */}
                         </RB.Nav.Link>
                     </div>
                 ))}

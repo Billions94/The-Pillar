@@ -35,7 +35,7 @@
                 transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             }
 
-            .d-text:hover  {
+            .d-text:hover {
                 margin-left: 25px;
                 font-size: 25px;
                 font-weight: 700;
@@ -165,6 +165,28 @@
                 transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             }
 
+            .icon {
+                visibility: hidden;
+                position: absolute;
+            }
+
+            .icon-dark {
+                visibility: hidden;
+                position: absolute;
+            }
+
+        }
+
+        .navLink:hover .icon {
+            visibility: visible;
+            position: absolute;
+            top: 38px;
+        }
+
+        .navLink:hover .icon-dark {
+            visibility: visible;
+            position: absolute;
+            top: 38px;
         }
 
         .navLink:hover .title {
