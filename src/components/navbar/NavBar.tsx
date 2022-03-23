@@ -43,10 +43,10 @@ export default function NavBar() {
                             <span className={check ? 'title' : 'title-dark'}>
                                 {item.title}
                             </span>
-                            <span className='icon'>●</span>
-                            {/* <RB.Image src={check ? item.icon: item.iconDark} 
+                            {/* <b className='icon'>⚫️</b> */}
+                            <RB.Image src={check ? item.icon: item.iconDark} 
                                 className='icon'
-                                alt='' width='8px' /> */}
+                                alt='' width='15px' />
                         </RB.Nav.Link>
                     </div>
                 ))}
