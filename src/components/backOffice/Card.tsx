@@ -2,7 +2,7 @@ import React, { SetStateAction } from 'react'
 import * as RB from 'react-bootstrap'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { cardInfo } from '.'
-import { darkModeState, productState } from '../atoms'
+import { darkModeState, productState, selectedState } from '../atoms'
 import './styles.scss'
 
 interface CardProps {
@@ -11,7 +11,6 @@ interface CardProps {
     setNewProd: React.Dispatch<SetStateAction<boolean>>
     setEditProd: React.Dispatch<SetStateAction<boolean>>
     setModalShow?: React.Dispatch<SetStateAction<boolean>>
-    updateSelected?: React.Dispatch<SetStateAction<number>>
 }
 
 export default function Card({ newProd, editProd, setNewProd, setEditProd }: CardProps) {
@@ -51,12 +50,16 @@ export default function Card({ newProd, editProd, setNewProd, setEditProd }: Car
 export function ProdCard({ setModalShow }: CardProps) {
 
     const [products, updateProducts] = useRecoilState(productState)
+    const [selected, updateSelected] = useRecoilState(selectedState)
     const darkMode = useRecoilValue(darkModeState)
     const check: boolean = darkMode === false
 
     function toggle(idx: number) {
        setModalShow && setModalShow(true)
+       updateSelected(idx)
     }
+
+    console.log('This is selected', selected)
 
     return (
         <>

@@ -1,6 +1,6 @@
 import * as RB from 'react-bootstrap'
 import React, { SetStateAction } from 'react'
-import { UpdateForm } from './xForm'
+import { UpdateForm } from './Form'
 import { useRecoilValue } from 'recoil'
 import { darkModeState } from '../atoms'
 
@@ -33,7 +33,9 @@ export default function EditModal({ index, modalShow, setModalShow }: EditModalP
                     </div>
                 </RB.Modal.Header>
                 <RB.Modal.Body>
-                    <UpdateForm  />
+                    <div>
+                        <UpdateForm  />
+                    </div>
                 </RB.Modal.Body>
                 {/* <RB.Modal.Footer>
                     <RB.Button>Update</RB.Button>

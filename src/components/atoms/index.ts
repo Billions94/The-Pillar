@@ -43,3 +43,9 @@ export const refreshState = atom<true | false>({
     default: false,
     effects_UNSTABLE: [persistAtom]
 })
+
+export const selectedState = atom<number>({
+    key: 'refresh',
+    default: 0,
+    effects_UNSTABLE: [persistAtom]
+})

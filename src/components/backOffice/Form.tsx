@@ -150,7 +150,11 @@ export default function Form() {
     )
 }
 
-export function UpdateForm() {
+interface UpdateFormProps {
+    idx?: number
+}
+
+export function UpdateForm({ idx }: UpdateFormProps) {
     const initialState = {
         name: '',
         description: '',

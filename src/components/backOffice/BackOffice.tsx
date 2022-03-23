@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import * as RB from 'react-bootstrap'
-import Form from './xForm'
+import Form from './Form'
 import Card, { ProdCard } from './Card'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { darkModeState, productState, modalState } from '../atoms'
@@ -57,8 +57,7 @@ export default function BackOffice() {
                     editProd={editProd}
                     setNewProd={setNewProd}
                     setEditProd={setEditProd}
-                    setModalShow={setModalShow} 
-                    updateSelected={updateSelected} />
+                    setModalShow={setModalShow}  />
                 </div>
                 <EditModal 
                   index={productIndex}
