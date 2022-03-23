@@ -5,6 +5,7 @@ import { Storage, API, graphqlOperation } from 'aws-amplify'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { createProduct, updateProduct } from '../../graphql/mutations'
 import awsExports from '../../aws-exports'
+import { useNavigate } from 'react-router-dom'
 import './styles.scss'
 
 
@@ -24,8 +25,8 @@ export default function Form() {
     }
 
     const [newProduct, updateNewProduct] = useState(initialState)
-    const [product, updateProduct] = useRecoilState(productState)
-    const darkMode = useRecoilValue(darkModeState)
+    const [product, updateProduct] = useRecoilState(Atom.productState)
+    const darkMode = useRecoilValue(Atom.darkModeState)
     const check: boolean = darkMode === false
 
     function updateInput(key: string, value: string) {
@@ -165,16 +166,19 @@ export function UpdateForm() {
     const [products, updateProducts] = useRecoilState(Atom.productState)
     const [_modalShow, setModalShow] = useRecoilState(Atom.modalState)
     const [_refresh, setRefresh] = useRecoilState(Atom.refreshState)
+    const darkMode = useRecoilValue(Atom.darkModeState)
     const [selected, updateSelected] = useState(0)
+    
+    const navigate = useNavigate()
 
+    const check: boolean = darkMode === false
     
     const index = products.findIndex((p, idx) => idx === selected)
     
     const productToUpdate = products[index]
     console.log('The product to update', productToUpdate)
 
-    const darkMode = useRecoilValue(darkModeState)
-    const check: boolean = darkMode === false
+
 
     function updateInput(key: string, value: string) {
         updateNewProduct({ ...newProduct, [key]: value });
@@ -202,7 +206,7 @@ export function UpdateForm() {
     async function update() {
         try {
             const prod = { ...productToUpdate };
-            // Appending the data from the form to the existing song
+            // Appending the data from the form to the existing product
             prod.name = newProduct.name
             prod.description = newProduct.description
             prod.price = newProduct.price
@@ -220,6 +224,7 @@ export function UpdateForm() {
             updateNewProduct(initialState);
             setModalShow(false);
             setRefresh(true)
+            navigate('/')
         } catch (error) {
             console.log('Unable to update product', error)
         }

@@ -3,13 +3,14 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { listProducts } from '../../graphql/queries'
-import { darkModeState, productState } from '../atoms'
+import { darkModeState, productState, refreshState } from '../atoms'
 import './styles.scss'
 
 export default function Home() {
 
   const [product, updateProduct] = useRecoilState(productState)
   const darkMode = useRecoilValue(darkModeState)
+  const refresh = useRecoilValue(refreshState)
   const check: boolean = darkMode === false
 
   async function getProduct() {
@@ -28,13 +29,13 @@ export default function Home() {
 
   useEffect(() => {
     getProduct()
-  }, [])
+  }, [refresh])
 
   return (
     <RB.Row id={check ? 'home' : 'homeDark'} className='p-4'>
       <h1 className="t-catalogue mb-4">Catalogue </h1>
       <RB.Col sm={10} md={5} className='d-flex'>
-        {product.map((item, idx) => (
+        {product !==  null  && product.map((item, idx) => (
           <div key={idx}>
             <RB.Card className='productCard'>
               <RB.Card.Header>
