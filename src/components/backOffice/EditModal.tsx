@@ -1,6 +1,8 @@
 import * as RB from 'react-bootstrap'
 import React, { SetStateAction } from 'react'
 import Form from './Form'
+import { useRecoilValue } from 'recoil'
+import { darkModeState } from '../atoms'
 
 interface EditModalProps {
     modalShow: boolean
@@ -13,7 +15,7 @@ export default function EditModal({ modalShow, setModalShow }: EditModalProps) {
     const check = darkMode === false
     return (
         <>
-            <RB.Modal id='editModal'
+            <RB.Modal id={check ? 'editModal' : 'editModal-dark'}
                 show={modalShow}
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
