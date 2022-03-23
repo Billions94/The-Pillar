@@ -4,6 +4,7 @@ import Form from './Form'
 import Card from './Card'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { darkModeState, productState } from '../atoms'
+import EditModal from './EditModal'
 import './styles.scss'
 
 export default function BackOffice() {
@@ -11,12 +12,13 @@ export default function BackOffice() {
   const [newProd, setNewProd] = useState(false)
   const [editProd, setEditProd] = useState(false)
   const [products, updateProducts] = useRecoilState(productState)
+  const [modalShow, setModalShow] = useState(false);
   const darkMode = useRecoilValue(darkModeState)
   const check: boolean = darkMode === false
 
 
   function toggle(idx: number) {
-
+    setModalShow(true)
   }
 
   return (
@@ -36,7 +38,9 @@ export default function BackOffice() {
       <>
         {newProd === false ? null :
           <>
-            <h5 className='t-addNewProd mb-3'>Add a new product to the catalogue</h5>
+            <h5 className={check ? 't-addNewProd mb-3' : 't-addNewProd-Dark'}>
+              Add a new product to the catalogue
+            </h5>
             <RB.Col md={6}>
               <Form />
             </RB.Col>
@@ -44,7 +48,9 @@ export default function BackOffice() {
         }
         {editProd === false ? null :
           <>
-            <h5 className='t-addNewProd mb-3'>Edit a new product to the catalogue</h5>
+            <h5 className={check ? 't-addNewProd mb-3' : 't-addNewProd-Dark'}>
+              Edit a new product to the catalogue
+            </h5>
             <RB.Col md={6}>
               <div>
                 {products.map((item, idx) => (
@@ -54,14 +60,17 @@ export default function BackOffice() {
                       <RB.Card.Header className='card-header'>
                         <RB.Image className='card-img' src={item.image} alt='' />
                       </RB.Card.Header>
-                      <RB.Card.Body>
-                        <strong>{item.description}</strong>
+                      <RB.Card.Body className='card-body'>
+                        <h6 className='c-text'>{item.name}</h6>
+                        <h6 className='c-text'>{item.description}</h6>
+                        <h6 className='c-text'>{item.price}</h6>
+                        <h6 className='c-text'>{item.category}</h6>
                       </RB.Card.Body>
                     </RB.Card>
                   </div>
                 ))}
+                <EditModal modalShow={modalShow} setModalShow={setModalShow} />
               </div>
-              <Form />
             </RB.Col>
           </>
         }

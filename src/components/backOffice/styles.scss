@@ -36,6 +36,16 @@
         font-family: 'Smooch Sans', sans-serif;
     }
 
+    .t-addNewProd-Dark {
+        text-align: center;
+        font-size: 35px;
+        font-weight: 500;
+        line-break: 18px;
+        font-family: 'Bitter', serif;
+        font-family: 'Smooch Sans', sans-serif;
+        color: white;
+    }
+
     .card-container {
         display: flex;
         justify-content: center;
@@ -56,11 +66,23 @@
                 .card-header {
                     padding: 10px;
                     border-radius: 0px;
+                    
 
                     .card-img {
                         width: 100%;
                         object-fit: cover;
                         border-radius: 0px;
+                    }
+                }
+
+                .card-body {
+
+                    .c-text {
+                        font-size: 18px !important;
+                        font-weight: 400 !important;
+                        line-break: 18px !important;
+                        font-family: 'Bitter', serif !important;
+                        font-family: 'Smooch Sans', sans-serif !important;
                     }
                 }
             }
@@ -164,6 +186,27 @@
         box-shadow: none;
     }
 
+    .select-dark {
+        position: absolute;
+        right: 0px;
+        top: 5px;
+        border: none;
+        color: rgb(124, 124, 124);
+        background: transparent;
+    }
+
+    .select-dark:active {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .select-dark:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
     .formControl:active {
         border: none;
         border-radius: none;
@@ -178,6 +221,32 @@
         outline: none;
         box-shadow: none;
         border-bottom: 1px solid rgb(216, 215, 215);
+    }
+
+    .formControl-Dark {
+        background: transparent;
+        border-bottom: 1px solid rgb(108, 117, 125);
+        color: white;
+    }
+
+    .formControl-Dark:active {
+        background: transparent;
+        border: none;
+        border-radius: none;
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid rgb(108, 117, 125);
+        color: white;
+    }
+
+    .formControl-Dark:focus {
+        background: transparent;
+        border: none;
+        border-radius: none;
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid rgb(108, 117, 125);
+        color: white;
     }
 
     .addProdBtn {
@@ -206,6 +275,32 @@
         animation-duration: 2s;
     }
 
+    .addProdBtn-dark {
+        border: 1px solid rgb(108, 117, 125);
+        background: transparent;
+        color: white;
+        width: 230px;
+        border-radius: 0;
+        transition-delay: ease-in 0.5s;
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+        .btn-span {
+            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Bitter', serif;
+            font-family: 'Smooch Sans', sans-serif;
+        }
+    }
+
+    .addProdBtn-dark:hover {
+        border: 1px solid black;
+        background: rgb(230, 230, 230);
+        letter-spacing: 3px;
+        color: black;
+        width: 230px;
+        animation-duration: 2s;
+    }
+
     .addProdBtn:active {
         border: 1px solid black;
         background: black;
@@ -226,5 +321,67 @@
         box-shadow: none;
         outline: none;
 
+    }
+}
+
+// --------------------------------------- Edit Modal Styles -----------------------------------------
+#editModal {
+
+    .modal-header {
+        border-bottom: none;
+    }
+
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        pointer-events: auto;
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: 0.3rem;
+        outline: 0;
+    }
+
+    .modal-content-dark {
+        background: #0f0f0f;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        pointer-events: auto;
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: 0.3rem;
+        outline: 0;
+    }
+
+    .modal-body {
+        padding: 20px 30px;
+    }
+
+    .closeBtn { 
+        background: transparent;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .closeBtn:hover { 
+        background: rgb(236, 236, 236);
+        border-radius: 50%;
+    }
+
+    .closeBtn:active { 
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        outline: none;
+    }
+
+    .closeBtn:focus { 
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        outline: none;
     }
 }

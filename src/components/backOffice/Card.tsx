@@ -17,46 +17,30 @@ export default function Card({ newProd, editProd, setNewProd, setEditProd }: Car
     const darkMode = useRecoilValue(darkModeState)
     const check: boolean = darkMode === false
 
-    function toggle (idx: number) { 
-        if(idx === 0) {
+    function toggle(idx: number) {
+        if (idx === 0) {
             newProd === false ? setNewProd(true) : setNewProd(false)
-        } else if(idx === 1) {
+        } else if (idx === 1) {
             editProd === false ? setEditProd(true) : setEditProd(false)
-        }  
+        }
     }
 
     return (
         <>
             {cardInfo.map((item, idx) => {
-                if (idx === 0) {
-                    return (
-                        <div key={idx} className={check ? 'card-holder' : 'card-holderDark'}>
-                            <RB.Card onClick={() => toggle(idx)}
-                                className='card'>
-                                <RB.Card.Header className='card-header'>
-                                    <RB.Image className='card-img' src={item.img} alt='' />
-                                </RB.Card.Header>
-                                <RB.Card.Body>
-                                    <strong>{item.description}</strong>
-                                </RB.Card.Body>
-                            </RB.Card>
-                        </div>
-                    )
-                } else if (idx === 1) {
-                    return (
-                        <div key={idx} className={check ? 'card-holder' : 'card-holderDark'}>
-                            <RB.Card onClick={() => toggle(idx)}
-                                className='card'>
-                                <RB.Card.Header className='card-header'>
-                                    <RB.Image className='card-img' src={item.img} alt='' />
-                                </RB.Card.Header>
-                                <RB.Card.Body>
-                                    <strong>{item.description}</strong>
-                                </RB.Card.Body>
-                            </RB.Card>
-                        </div>
-                    )
-                }
+                return (
+                    <div key={idx} className={check ? 'card-holder' : 'card-holderDark'}>
+                        <RB.Card onClick={() => toggle(idx)}
+                            className='card'>
+                            <RB.Card.Header className='card-header'>
+                                <RB.Image className='card-img' src={item.img} alt='' />
+                            </RB.Card.Header>
+                            <RB.Card.Body>
+                                <strong>{item.description}</strong>
+                            </RB.Card.Body>
+                        </RB.Card>
+                    </div>
+                )
             })}
         </>
     )
