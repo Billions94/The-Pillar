@@ -5,7 +5,7 @@
 }
 
 .dark {
-    background: rgb(44, 44, 44);
+    background: rgba(44, 44, 44, 0.87);
 }
 
 #myNavBar {
@@ -31,6 +31,21 @@
                 line-break: 18px;
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            .d-text:hover  {
+                margin-left: 25px;
+                font-size: 25px;
+                font-weight: 700;
+                letter-spacing: 3px;
+                line-break: 18px;
+                font-family: 'Bitter', serif;
+                font-family: 'Smooch Sans', sans-serif;
+                transform: translateY(-4px);
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             }
 
             .d-textDark {
@@ -41,6 +56,36 @@
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
                 color: white;
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            .d-textDark:hover {
+                margin-left: 25px;
+                font-size: 25px;
+                font-weight: 700;
+                letter-spacing: 3px;
+                line-break: 18px;
+                font-family: 'Bitter', serif;
+                font-family: 'Smooch Sans', sans-serif;
+                transform: translateY(-4px);
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            .brandIcon {
+                width: 27px;
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            .brandIcon:hover {
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+                width: 30px;
+                transform: translateY(-4px);
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             }
         }
     }
@@ -53,6 +98,26 @@
         .darkModeBtn {
             background: transparent;
             border: none;
+
+            .btn-img {
+                width: 27px;
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+            }
+        }
+
+        .darkModeBtn:hover {
+            background: transparent;
+            border: none;
+
+            .btn-img {
+                width: 30px;
+                transform: translateY(-4px);
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+            }
         }
 
         .darkModeBtn:active {
@@ -83,6 +148,8 @@
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
                 color: black;
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             }
 
             .title-dark {
@@ -94,6 +161,8 @@
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
                 color: white;
+                transition-delay: ease-in 0.5s;
+                transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             }
 
         }
@@ -101,22 +170,30 @@
         .navLink:hover .title {
             align-items: center;
             visibility: visible;
+            letter-spacing: 3px;
+            transform: translateY(-3px);
             font-size: 18px;
             font-weight: 500;
             line-break: 20px;
             font-family: 'Bitter', serif;
             font-family: 'Smooch Sans', sans-serif;
+            transition-delay: ease-in 0.5s;
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .navLink:hover .title-dark {
             align-items: center;
             visibility: visible;
+            letter-spacing: 3px;
+            transform: translateY(-3px);
             font-size: 18px;
             font-weight: 500;
             line-break: 20px;
             font-family: 'Bitter', serif;
             font-family: 'Smooch Sans', sans-serif;
             color: white;
+            transition-delay: ease-in 0.5s;
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
     }

@@ -23,7 +23,7 @@ export default function NavBar() {
                 onClick={() => navigate('/')}
                 style={{ cursor: 'pointer' }}>
                 <div className='brand-container'>
-                    <RB.Image src={check ? Icon.navbarBrand : Icon.navbarBrandDark} alt='' width='25px' />
+                    <RB.Image src={check ? Icon.navbarBrand : Icon.navbarBrandDark} alt='' className='brandIcon' />
                     <>
                         <span className={check ? 'd-text' : 'd-textDark'}>Dagger</span>
                     </>
@@ -33,7 +33,7 @@ export default function NavBar() {
                 <div>
                     <RB.Button onClick={toggle}
                         className='darkModeBtn'>
-                        <RB.Image src={check ? Icon.moon : Icon.sun} alt='' width='25px' />
+                        <RB.Image src={check ? Icon.moon : Icon.sun} alt='' className='btn-img' />
                     </RB.Button>
                 </div>
                 {navBarInfo.map((item, idx) => (
