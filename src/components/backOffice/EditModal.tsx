@@ -13,6 +13,7 @@ export default function EditModal({ modalShow, setModalShow }: EditModalProps) {
     const onHide = () => setModalShow(false)
     const darkMode = useRecoilValue(darkModeState)
     const check = darkMode === false
+    
     return (
         <>
             <RB.Modal id={check ? 'editModal' : 'editModal-dark'}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import * as RB from 'react-bootstrap'
 import Form from './Form'
-import Card from './Card'
+import Card, { ProdCard } from './Card'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { darkModeState, productState } from '../atoms'
 import EditModal from './EditModal'
@@ -11,15 +11,9 @@ export default function BackOffice() {
 
   const [newProd, setNewProd] = useState(false)
   const [editProd, setEditProd] = useState(false)
-  const [products, updateProducts] = useRecoilState(productState)
   const [modalShow, setModalShow] = useState(false);
   const darkMode = useRecoilValue(darkModeState)
   const check: boolean = darkMode === false
-
-
-  function toggle(idx: number) {
-    setModalShow(true)
-  }
 
   return (
     <RB.Row id='bo-container'>
@@ -53,7 +47,7 @@ export default function BackOffice() {
             </h5>
             <RB.Col md={6}>
               <div>
-                {products.map((item, idx) => (
+                {/* {products.map((item, idx) => (
                   <div key={idx} className={check ? 'card-holder' : 'card-holderDark'}>
                     <RB.Card onClick={() => toggle(idx)}
                       className='card'>
@@ -68,7 +62,13 @@ export default function BackOffice() {
                       </RB.Card.Body>
                     </RB.Card>
                   </div>
-                ))}
+                ))} */}
+                <ProdCard
+                  newProd={newProd}
+                  editProd={editProd}
+                  setNewProd={setNewProd}
+                  setEditProd={setEditProd}
+                  setModalShow={setModalShow} />
                 <EditModal modalShow={modalShow} setModalShow={setModalShow} />
               </div>
             </RB.Col>
