@@ -5,15 +5,16 @@ import { useRecoilValue } from 'recoil'
 import { darkModeState } from '../atoms'
 
 interface EditModalProps {
+    index: number
     modalShow: boolean
     setModalShow: React.Dispatch<SetStateAction<boolean>>
 }
 
-export default function EditModal({ modalShow, setModalShow }: EditModalProps) {
+export default function EditModal({ index, modalShow, setModalShow }: EditModalProps) {
     const onHide = () => setModalShow(false)
     const darkMode = useRecoilValue(darkModeState)
     const check = darkMode === false
-    
+
     return (
         <>
             <RB.Modal id={check ? 'editModal' : 'editModal-dark'}

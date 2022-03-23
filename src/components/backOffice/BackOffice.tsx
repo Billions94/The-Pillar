@@ -11,9 +11,13 @@ export default function BackOffice() {
 
   const [newProd, setNewProd] = useState(false)
   const [editProd, setEditProd] = useState(false)
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState(false)
+  const [products, updateProducts] = useRecoilState(productState)
+  const [selected, updateSelected] = useState(0)
   const darkMode = useRecoilValue(darkModeState)
   const check: boolean = darkMode === false
+
+  const productIndex = products.findIndex((p, idx) => idx === selected)
 
   return (
     <RB.Row id='bo-container'>
@@ -69,7 +73,7 @@ export default function BackOffice() {
                   setNewProd={setNewProd}
                   setEditProd={setEditProd}
                   setModalShow={setModalShow} />
-                <EditModal modalShow={modalShow} setModalShow={setModalShow} />
+                <EditModal index={productIndex} modalShow={modalShow} setModalShow={setModalShow} />
               </div>
             </RB.Col>
           </>
