@@ -15,9 +15,11 @@ code {
 #app {
   .light {
     background: white;
+    min-height: 100vh;
   }
   
   .dark {
     background: rgb(15, 15, 15);
+    min-height: 100vh;
   }
 }
