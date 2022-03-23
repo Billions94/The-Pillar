@@ -37,10 +37,10 @@ export default function NavBar() {
                     </RB.Button>
                 </div>
                 {navBarInfo.map((item, idx) => (
-                    <div key={idx} className='d-flex justify-content-between'>
+                    <div key={idx} className=''>
                         <RB.Nav.Link className='navLink'
                             onClick={() => navigate(`${item.path}`)}>
-                            <RB.Image src={check ? item.icon: item.iconDark} alt='' width='23px' />
+                            {/* <RB.Image src={check ? item.icon: item.iconDark} alt='' width='23px' /> */}
                             <span className={check ? 'title' : 'title-dark'}>
                                 {item.title}
                             </span>

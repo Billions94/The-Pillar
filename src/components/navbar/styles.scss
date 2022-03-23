@@ -76,7 +76,7 @@
 
             .title {
                 align-items: center;
-                visibility: hidden;
+                visibility: visible;
                 font-size: 18px;
                 font-weight: 500;
                 line-break: 20px;
@@ -87,12 +87,13 @@
 
             .title-dark {
                 align-items: center;
-                visibility: hidden;
+                visibility: visible;
                 font-size: 18px;
                 font-weight: 500;
                 line-break: 20px;
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
+                color: white;
             }
 
         }
