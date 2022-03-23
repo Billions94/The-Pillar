@@ -379,8 +379,8 @@
     }
 
     .delProdBtn:hover {
-        border: 1px solid black;
-        background: black;
+        border: 1px solid rgb(227, 2, 2);
+        background: rgb(227, 2, 2);
         letter-spacing: 3px;
         color: white;
         width: 230px;
@@ -427,10 +427,10 @@
     }
 
     .delProdBtn-dark:hover {
-        border: 1px solid black;
-        background: rgb(230, 230, 230);
+        border: 1px solid rgb(227, 2, 2);
+        background: rgb(227, 2, 2);
         letter-spacing: 3px;
-        color: black;
+        color: white;
         width: 230px;
         animation-duration: 2s;
     }
