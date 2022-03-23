@@ -1,15 +1,21 @@
 import { withAuthenticator } from '@aws-amplify/ui-react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useRecoilValue } from 'recoil';
-import { darkModeState } from './components/atoms';
+import { darkModeState, refreshState } from './components/atoms';
 import NavBar from './components/navbar/NavBar';
 import { routes } from './routes';
 import './styles.scss'
 
 function App() {
 
+  const refresh = useRecoilValue(refreshState)
   const darkMode = useRecoilValue(darkModeState)
   const check: boolean = darkMode === false
+
+  useEffect(() => {
+    
+  }, [refresh])
 
   return (
     <Router>

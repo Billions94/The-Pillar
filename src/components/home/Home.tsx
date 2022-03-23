@@ -24,7 +24,7 @@ export default function Home() {
 
 
 
-  console.log(product)
+  console.log(product && product)
 
   useEffect(() => {
     getProduct()

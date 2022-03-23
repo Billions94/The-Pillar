@@ -37,3 +37,9 @@ export const modalState = atom<true | false>({
     default: false,
     effects_UNSTABLE: [persistAtom]
 })
+
+export const refreshState = atom<true | false>({
+    key: 'refresh',
+    default: false,
+    effects_UNSTABLE: [persistAtom]
+})

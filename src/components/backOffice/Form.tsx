@@ -1,8 +1,8 @@
 import * as RB from 'react-bootstrap'
+import * as Atom from '../atoms'
 import { useState } from 'react'
 import { Storage, API, graphqlOperation } from 'aws-amplify'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { darkModeState, modalState, productState } from '../atoms'
 import { createProduct, updateProduct } from '../../graphql/mutations'
 import awsExports from '../../aws-exports'
 import './styles.scss'
@@ -162,13 +162,16 @@ export function UpdateForm() {
     }
 
     const [newProduct, updateNewProduct] = useState(initialState)
-    const [products, updateProducts] = useRecoilState(productState)
-    const [modalShow, setModalShow] = useRecoilState(modalState)
+    const [products, updateProducts] = useRecoilState(Atom.productState)
+    const [_modalShow, setModalShow] = useRecoilState(Atom.modalState)
+    const [_refresh, setRefresh] = useRecoilState(Atom.refreshState)
     const [selected, updateSelected] = useState(0)
 
+    
     const index = products.findIndex((p, idx) => idx === selected)
-
+    
     const productToUpdate = products[index]
+    console.log('The product to update', productToUpdate)
 
     const darkMode = useRecoilValue(darkModeState)
     const check: boolean = darkMode === false
@@ -216,6 +219,7 @@ export function UpdateForm() {
             updateProducts(newProd);
             updateNewProduct(initialState);
             setModalShow(false);
+            setRefresh(true)
         } catch (error) {
             console.log('Unable to update product', error)
         }
@@ -282,7 +286,7 @@ export function UpdateForm() {
                         onClick={() => update()}
                         className={check ? 'addProdBtn' : 'addProdBtn-dark'}
                         variant='success'>
-                        <span className='btn-span'>Add product</span>
+                        <span className='btn-span'>Update product</span>
                     </RB.Button>
                     :
                     <RB.Button
