@@ -66,11 +66,12 @@
                 .card-header {
                     padding: 0px;
                     border-radius: 0px;
-                    
+                    height: 68%;    
 
                     .card-img {
                         width: 100%;
-                        object-fit: cover;
+                        height: 100%;
+                        // object-fit: cover;
                         border-radius: 0px;
                     }
                 }
@@ -290,6 +291,28 @@
         animation-duration: 2s;
     }
 
+    .addProdBtn:active {
+        border: 1px solid black;
+        background: black;
+        letter-spacing: 3px;
+        color: white;
+        width: 230px;
+        box-shadow: none;
+        outline: none;
+
+    }
+
+    .addProdBtn:focus {
+        border: 1px solid black;
+        background: black;
+        letter-spacing: 3px;
+        color: white;
+        width: 230px;
+        box-shadow: none;
+        outline: none;
+
+    }
+
     .addProdBtn-dark {
         border: 1px solid rgb(108, 117, 125);
         background: transparent;
@@ -316,7 +339,7 @@
         animation-duration: 2s;
     }
 
-    .addProdBtn:active {
+    .addProdBtn-dark:active {
         border: 1px solid black;
         background: black;
         letter-spacing: 3px;
@@ -327,7 +350,7 @@
 
     }
 
-    .addProdBtn:focus {
+    .addProdBtn-dark:focus {
         border: 1px solid black;
         background: black;
         letter-spacing: 3px;
@@ -337,6 +360,103 @@
         outline: none;
 
     }
+
+    .delProdBtn {
+        border: 1px solid black;
+        background: white;
+        color: black;
+        width: 230px;
+        border-radius: 0;
+        transition-delay: ease-in 0.5s;
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+        .btn-span {
+            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Bitter', serif;
+            font-family: 'Smooch Sans', sans-serif;
+        }
+    }
+
+    .delProdBtn:hover {
+        border: 1px solid black;
+        background: black;
+        letter-spacing: 3px;
+        color: white;
+        width: 230px;
+        animation-duration: 2s;
+    }
+
+    .delProdBtn:active {
+        border: 1px solid black;
+        background: black;
+        letter-spacing: 3px;
+        color: white;
+        width: 230px;
+        box-shadow: none;
+        outline: none;
+
+    }
+
+    .delProdBtn:focus {
+        border: 1px solid black;
+        background: black;
+        letter-spacing: 3px;
+        color: white;
+        width: 230px;
+        box-shadow: none;
+        outline: none;
+
+    }
+
+    .delProdBtn-dark {
+        border: 1px solid rgb(108, 117, 125);
+        background: transparent;
+        color: white;
+        width: 230px;
+        border-radius: 0;
+        transition-delay: ease-in 0.5s;
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+        .btn-span {
+            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Bitter', serif;
+            font-family: 'Smooch Sans', sans-serif;
+        }
+    }
+
+    .delProdBtn-dark:hover {
+        border: 1px solid black;
+        background: rgb(230, 230, 230);
+        letter-spacing: 3px;
+        color: black;
+        width: 230px;
+        animation-duration: 2s;
+    }
+
+    .delProdBtn-dark:active {
+        border: 1px solid black;
+        background: black;
+        letter-spacing: 3px;
+        color: white;
+        width: 230px;
+        box-shadow: none;
+        outline: none;
+
+    }
+
+    .delProdBtn-dark:focus {
+        border: 1px solid black;
+        background: black;
+        letter-spacing: 3px;
+        color: white;
+        width: 230px;
+        box-shadow: none;
+        outline: none;
+
+    }
+
 }
 
 // --------------------------------------- Edit Modal Styles -----------------------------------------

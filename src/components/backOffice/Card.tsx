@@ -59,8 +59,6 @@ export function ProdCard({ setModalShow }: CardProps) {
        updateSelected(idx)
     }
 
-    console.log('This is selected', selected)
-
     return (
         <>
             {products.map((item, idx) => (

@@ -19,6 +19,8 @@ export default function BackOffice() {
 
   const productIndex = products.findIndex((p, idx) => idx === selected)
 
+  
+
   return (
     <RB.Row id='bo-container'>
       <h2 className={check ? 't-BO mb-1' : 't-BO-Dark mb-1'}>BackOffice</h2>

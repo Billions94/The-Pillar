@@ -150,11 +150,8 @@ export default function Form() {
     )
 }
 
-interface UpdateFormProps {
-    idx?: number
-}
 
-export function UpdateForm({ idx }: UpdateFormProps) {
+export function UpdateForm() {
     const initialState = {
         name: '',
         description: '',
@@ -173,14 +170,14 @@ export function UpdateForm({ idx }: UpdateFormProps) {
     const [_modalShow, setModalShow] = useRecoilState(Atom.modalState)
     const [_refresh, setRefresh] = useRecoilState(Atom.refreshState)
     const darkMode = useRecoilValue(Atom.darkModeState)
-    const [selected, updateSelected] = useState(0)
-    
+    const selected = useRecoilValue(Atom.selectedState)
+
     const navigate = useNavigate()
 
     const check: boolean = darkMode === false
-    
+
     const index = products.findIndex((p, idx) => idx === selected)
-    
+
     const productToUpdate = products[index]
     console.log('The product to update', productToUpdate)
 
@@ -229,7 +226,7 @@ export function UpdateForm({ idx }: UpdateFormProps) {
                 const imageUrl = await Storage.get(imageFilePath, { expires: 10080 })
                 newProduct.image = imageUrl
             }
-      
+
             const { data }: any = await API.graphql(graphqlOperation(updateProduct, { input: prod }));
             const newProd = [...products];
             newProd[index] = data.updateSong;
@@ -240,6 +237,27 @@ export function UpdateForm({ idx }: UpdateFormProps) {
             navigate('/')
         } catch (error) {
             console.log('Unable to update product', error)
+        }
+    }
+
+    async function deleteProduct() {
+        try {
+            const productToDelete = productToUpdate
+            delete productToDelete.name
+            delete productToDelete.description
+            delete productToDelete.price
+            delete productToDelete.category
+            delete productToDelete.image
+            delete productToDelete.file
+            delete productToDelete.createdAt
+            delete productToDelete.updatedAt
+            delete productToDelete.owner
+
+            await API.graphql(graphqlOperation(deleteProduct, { input: productToDelete }))
+            updateNewProduct(initialState);
+            setModalShow(false);
+        } catch (error) {
+            console.log('Product could not be deleted', error)
         }
     }
 
@@ -259,7 +277,7 @@ export function UpdateForm({ idx }: UpdateFormProps) {
                     value={newProduct.description}
                     type='text'
                     onChange={(e) => updateInput('description', e.target.value)}
-                    placeholder='description' />
+                    placeholder={productToUpdate.description} />
             </RB.FormGroup>
             <RB.FormGroup>
                 <RB.FormControl
@@ -267,7 +285,7 @@ export function UpdateForm({ idx }: UpdateFormProps) {
                     type='text'
                     value={newProduct.image}
                     onChange={(e) => updateInput('image', e.target.value)}
-                    placeholder='image url' />
+                    placeholder={productToUpdate.image} />
             </RB.FormGroup>
             <RB.FormGroup>
                 <RB.FormControl
@@ -282,7 +300,7 @@ export function UpdateForm({ idx }: UpdateFormProps) {
                     value={newProduct.price}
                     type='text'
                     onChange={(e) => updateInput('price', e.target.value)}
-                    placeholder='price' />
+                    placeholder={productToUpdate.price} />
 
                 <select className={check ? 'select' : 'select-dark'}>
                     <option value="EUR">EUR</option>
@@ -295,7 +313,7 @@ export function UpdateForm({ idx }: UpdateFormProps) {
                     value={newProduct.category}
                     type='text'
                     onChange={(e) => updateInput('category', e.target.value)}
-                    placeholder='category' />
+                    placeholder={productToUpdate.category} />
             </RB.FormGroup>
             <div className='d-flex justify-content-center mt-5'>
                 {!newProduct.category ?
@@ -314,6 +332,14 @@ export function UpdateForm({ idx }: UpdateFormProps) {
                         <span className='btn-span'>Update product</span>
                     </RB.Button>
                 }
+
+                <RB.Button
+                    onClick={() => update()}
+                    className={check ? 'delProdBtn' : 'delProdBtn-dark'}
+                    style={{ marginLeft: '10px'}}
+                    variant='success'>
+                    <span className='btn-span'>Delete product</span>
+                </RB.Button>
             </div>
 
         </RB.Form>
