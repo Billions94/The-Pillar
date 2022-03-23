@@ -247,7 +247,7 @@ export function UpdateForm() {
                     value={newProduct.name}
                     type='text'
                     onChange={(e) => updateInput('name', e.target.value)}
-                    placeholder='name' />
+                    placeholder={productToUpdate.name} />
             </RB.FormGroup>
             <RB.FormGroup>
                 <RB.FormControl

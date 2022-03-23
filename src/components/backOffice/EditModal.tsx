@@ -1,6 +1,6 @@
 import * as RB from 'react-bootstrap'
 import React, { SetStateAction } from 'react'
-import { UpdateForm } from './Form'
+import { UpdateForm } from './xForm'
 import { useRecoilValue } from 'recoil'
 import { darkModeState } from '../atoms'
 

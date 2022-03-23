@@ -64,7 +64,7 @@
 
 
                 .card-header {
-                    padding: 10px;
+                    padding: 0px;
                     border-radius: 0px;
                     
 
@@ -79,12 +79,13 @@
 
                     .card-text {
                         font-size: 18px;
-                        font-weight: 400;
+                        font-weight: 500;
                         line-break: 18px;
                         font-family: 'Bitter', serif;
                         font-family: 'Smooch Sans', sans-serif;
                     }
                 }
+
             }
         }
 
@@ -105,17 +106,30 @@
 
 
                 .card-header {
-                    padding: 10px;
+                    padding: 0px;
                     border-radius: 0px;
-                    height: 58%;
+                    height: 68%;
 
                     .card-img {
                         width: 100%;
-                        object-fit: cover;
+                        height: 100%;
+                        // object-fit: cover;
                         border-radius: 0px;
                     }
                 }
+
+                .card-body {
+    
+                    .card-text {
+                        font-size: 18px;
+                        font-weight: 500;
+                        line-break: 18px;
+                        font-family: 'Bitter', serif;
+                        font-family: 'Smooch Sans', sans-serif;
+                    }
+                }
             }
+
         }
     }
 

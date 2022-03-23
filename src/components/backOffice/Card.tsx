@@ -11,6 +11,7 @@ interface CardProps {
     setNewProd: React.Dispatch<SetStateAction<boolean>>
     setEditProd: React.Dispatch<SetStateAction<boolean>>
     setModalShow?: React.Dispatch<SetStateAction<boolean>>
+    updateSelected?: React.Dispatch<SetStateAction<number>>
 }
 
 export default function Card({ newProd, editProd, setNewProd, setEditProd }: CardProps) {
@@ -63,7 +64,8 @@ export function ProdCard({ setModalShow }: CardProps) {
                     <div key={idx} className={check ? 'card-holder' : 'card-holderDark'}>
                         <RB.Card onClick={() => toggle(idx)}
                             className='card'>
-                            <RB.Card.Header className='card-header'>
+                            <RB.Card.Header className='card-header'
+                                style={{ width: '186px', height: '155px' }}>
                                 <RB.Image className='card-img' src={item.image} alt='' />
                             </RB.Card.Header>
                             <RB.Card.Body className='card-body'>
