@@ -6,6 +6,7 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import { createProduct, updateProduct, deleteProduct } from '../../graphql/mutations'
 import awsExports from '../../aws-exports'
 import { useNavigate } from 'react-router-dom'
+import { listProducts } from '../../graphql/queries'
 import './styles.scss'
 
 
@@ -258,7 +259,7 @@ export function UpdateForm() {
     async function erase() {
         try {
             const product = { ...productToUpdate }
-            
+
             delete product.name
             delete product.description
             delete product.price
@@ -272,6 +273,9 @@ export function UpdateForm() {
             await API.graphql(graphqlOperation(deleteProduct, { input: product }))
             updateNewProduct(initialState);
             setModalShow(false);
+            const { data }: any = await API.graphql(graphqlOperation(listProducts))
+            const { items } = data.listProducts
+            updateProducts(items)
         } catch (error) {
             console.log('Product could not be deleted', error)
         }
@@ -352,7 +356,7 @@ export function UpdateForm() {
                 <RB.Button
                     onClick={erase}
                     className={check ? 'delProdBtn' : 'delProdBtn-dark'}
-                    style={{ marginLeft: '10px'}}
+                    style={{ marginLeft: '10px' }}
                     variant='success'>
                     <span className='btn-span'>Delete product</span>
                 </RB.Button>
