@@ -150,18 +150,18 @@ export default function Form() {
     )
 }
 
-export const initialState = {
-    name: '',
-    description: '',
-    price: '',
-    category: '',
-    image: '',
-    file: {
-        bucket: '',
-        region: '',
-        key: ''
-    }
-}
+// export const initialState = {
+//     name: '',
+//     description: '',
+//     price: '',
+//     category: '',
+//     image: '',
+//     file: {
+//         bucket: '',
+//         region: '',
+//         key: ''
+//     }
+// }
 
 export function UpdateForm() {
     const initialState = {
@@ -257,7 +257,7 @@ export function UpdateForm() {
 
     async function erase() {
         try {
-            const product = productToUpdate
+            const product = { ...productToUpdate }
             
             delete product.name
             delete product.description
