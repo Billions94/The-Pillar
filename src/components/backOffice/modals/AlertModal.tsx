@@ -1,6 +1,7 @@
 import * as RB from 'react-bootstrap'
 import { useRecoilState } from 'recoil'
 import { alertState } from '../../atoms'
+import './styles.scss'
 
 export default function AlertModal() {
 
@@ -13,14 +14,10 @@ export default function AlertModal() {
                 centered
                 show={smShow}
                 onHide={() => setSmShow(false)}
-                aria-labelledby="example-modal-sizes-title-sm"
-            >
-                <RB.Modal.Header closeButton>
-                    <RB.Modal.Title id="example-modal-sizes-title-sm">
-                        Small Modal
-                    </RB.Modal.Title>
-                </RB.Modal.Header>
-                <RB.Modal.Body>...</RB.Modal.Body>
+                aria-labelledby="example-modal-sizes-title-sm">
+                <RB.Modal.Body>
+
+                </RB.Modal.Body>
             </RB.Modal>
         </div>
     )

@@ -3,6 +3,7 @@ import React, { SetStateAction } from 'react'
 import { UpdateForm } from '../Form'
 import { useRecoilValue } from 'recoil'
 import { darkModeState } from '../../atoms'
+import './styles.scss'
 
 interface EditModalProps {
     modalShow: boolean

@@ -168,6 +168,7 @@ export function UpdateForm() {
     const [newProduct, updateNewProduct] = useState(initialState)
     const [products, updateProducts] = useRecoilState(Atom.productState)
     const [_modalShow, setModalShow] = useRecoilState(Atom.modalState)
+    const [alert, setAlert] = useRecoilState(Atom.alertState)
     const [_refresh, setRefresh] = useRecoilState(Atom.refreshState)
     const darkMode = useRecoilValue(Atom.darkModeState)
     const selected = useRecoilValue(Atom.selectedState)
@@ -334,7 +335,7 @@ export function UpdateForm() {
                 }
 
                 <RB.Button
-                    onClick={() => update()}
+                    onClick={() => setAlert(true)}
                     className={check ? 'delProdBtn' : 'delProdBtn-dark'}
                     style={{ marginLeft: '10px'}}
                     variant='success'>
