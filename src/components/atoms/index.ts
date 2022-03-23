@@ -39,7 +39,7 @@ export const modalState = atom<true | false>({
 })
 
 export const alertState = atom<true | false>({
-    key: 'modal',
+    key: 'alert',
     default: false,
     effects_UNSTABLE: [persistAtom]
 })

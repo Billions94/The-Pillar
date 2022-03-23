@@ -7,6 +7,7 @@ import { createProduct, updateProduct } from '../../graphql/mutations'
 import awsExports from '../../aws-exports'
 import { Navigate, useNavigate } from 'react-router-dom'
 import './styles.scss'
+import AlertModal from './modals/AlertModal'
 
 
 export default function Form() {
@@ -320,14 +321,14 @@ export function UpdateForm() {
                 {!newProduct.category ?
                     <RB.Button
                         disabled
-                        onClick={() => update()}
+                        onClick={update}
                         className={check ? 'addProdBtn' : 'addProdBtn-dark'}
                         variant='success'>
                         <span className='btn-span'>Update product</span>
                     </RB.Button>
                     :
                     <RB.Button
-                        onClick={() => update()}
+                        onClick={update}
                         className={check ? 'addProdBtn' : 'addProdBtn-dark'}
                         variant='success'>
                         <span className='btn-span'>Update product</span>
@@ -335,12 +336,13 @@ export function UpdateForm() {
                 }
 
                 <RB.Button
-                    onClick={() => setAlert(true)}
+                    onClick={deleteProduct}
                     className={check ? 'delProdBtn' : 'delProdBtn-dark'}
                     style={{ marginLeft: '10px'}}
                     variant='success'>
                     <span className='btn-span'>Delete product</span>
                 </RB.Button>
+                {/* <AlertModal /> */}
             </div>
 
         </RB.Form>
