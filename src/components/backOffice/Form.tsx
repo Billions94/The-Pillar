@@ -216,6 +216,13 @@ export function UpdateForm() {
             delete prod.createdAt;
             delete prod.updatedAt;
             delete prod.owner;
+
+            if (newProduct.image === null || undefined) {
+                const imageFilePath = newProduct.file.key.split('/').slice(-1).join()
+
+                const imageUrl = await Storage.get(imageFilePath, { expires: 10080 })
+                newProduct.image = imageUrl
+            }
       
             const { data }: any = await API.graphql(graphqlOperation(updateProduct, { input: prod }));
             const newProd = [...products];
@@ -223,8 +230,8 @@ export function UpdateForm() {
             updateProducts(newProd);
             updateNewProduct(initialState);
             setModalShow(false);
-            setRefresh(true)
             navigate('/')
+            setRefresh(true)
         } catch (error) {
             console.log('Unable to update product', error)
         }
@@ -260,6 +267,7 @@ export function UpdateForm() {
                 <RB.FormControl
                     className={check ? 'formControl' : 'formControl-Dark'}
                     type='file'
+                    value={newProduct.image}
                     onChange={(e) => target(e)}
                     placeholder='image url' />
             </RB.FormGroup>

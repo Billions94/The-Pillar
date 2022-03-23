@@ -24,18 +24,15 @@ export default function Home() {
   }
 
 
-
-  console.log(product && product)
-
   useEffect(() => {
     getProduct()
   }, [refresh])
 
   return (
     <RB.Row id={check ? 'home' : 'homeDark'} className='p-4'>
-      <h1 className="t-catalogue mb-4">Catalogue </h1>
+      {/* <h1 className="t-catalogue mb-4">Catalogue </h1>
       <RB.Col sm={10} md={5} className='d-flex'>
-        {product !==  null  && product.map((item, idx) => (
+        {!product ? null : product.map((item, idx) => (
           <div key={idx}>
             <RB.Card className='productCard'>
               <RB.Card.Header>
@@ -51,7 +48,7 @@ export default function Home() {
             </RB.Card>
           </div>
         ))}
-      </RB.Col>
+      </RB.Col> */}
     </RB.Row>
   )
 }
