@@ -21,7 +21,7 @@ export default function Card({ newProd, editProd, setNewProd, setEditProd }: Car
         if(idx === 0) {
             newProd === false ? setNewProd(true) : setNewProd(false)
         } else if(idx === 1) {
-            editProd === true ? setEditProd(true) : setEditProd(false)
+            editProd === false ? setEditProd(true) : setEditProd(false)
         }  
     }
 
