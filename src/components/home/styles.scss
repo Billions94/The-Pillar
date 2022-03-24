@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Smooch+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
 
 #home {
+    display: flex;
+    justify-content: space-evenly;
 
     .card-container {
         display: flex;
+        flex-wrap: wrap;
     }
 
     .t-catalogue {
@@ -23,14 +26,16 @@
         transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
         z-index: 0;
         width: 250px;
-        margin-right: 30px;
+        height: 380px;
+        margin-right: 40px;
+        margin-bottom: 50px;
         
 
         .card-header {
             border: none;
             padding: 0px;
             background: whitesmoke;
-            height: 68%;
+            height: 250px;
 
             .card-img {
                 width: 100%;
@@ -73,9 +78,12 @@
 #homeDark {
     // background: rgb(15, 15, 15);
     // min-height: 89vh;
+    display: flex;
+    justify-content: space-evenly;
 
     .card-container {
         display: flex;
+        flex-wrap: wrap;
     }
 
     .t-catalogue {
@@ -98,14 +106,16 @@
         background: rgb(44, 44, 44);
         color:rgb(255, 255, 255);
         width: 250px;
-        margin-right: 30px;
+        height: 380px;
+        margin-right: 40px;
+        margin-bottom: 50px;
 
         .card-header {
             border: 0px;
             padding: 0px;
             background: rgb(37, 37, 37);
             box-shadow: 0px 0px 5px #939393;
-            height: 68%;
+            height: 250px;
 
             .card-img {
                 width: 100%;

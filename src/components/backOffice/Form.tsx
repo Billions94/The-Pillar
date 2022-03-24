@@ -26,6 +26,7 @@ export default function Form() {
     }
 
     const [newProduct, updateNewProduct] = useState(initialState)
+    const [refresh, setRefresh] = useRecoilState(Atom.refreshState)
     const [product, updateProduct] = useRecoilState(Atom.productState)
     const darkMode = useRecoilValue(Atom.darkModeState)
     const check: boolean = darkMode === false
@@ -68,6 +69,7 @@ export default function Form() {
 
             updateProduct([...product, newItem]);
             updateNewProduct(initialState);
+            refresh === false && setRefresh(true)
             navigate('/')
             await API.graphql(graphqlOperation(createProduct, { input: newItem }));
         } catch (error) {
