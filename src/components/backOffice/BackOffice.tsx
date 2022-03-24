@@ -33,9 +33,15 @@ export default function BackOffice() {
       <>
         {newProd === false ? null :
           <>
-            <h5 className={check ? 't-addNewProd mb-3' : 't-addNewProd-Dark'}>
-              Add a new product to the catalogue
-            </h5>
+            <div>
+              <h6  onClick={() => setNewProd(false)}
+                className={check ? 'dark-text' : 'light-text'}>
+                ← Back
+              </h6>
+              <h5 className={check ? 't-addNewProd mb-3' : 't-addNewProd-Dark'}>
+                Add a new product to the catalogue
+              </h5>
+            </div>
             <RB.Col md={6}>
               <Form />
             </RB.Col>
@@ -43,9 +49,15 @@ export default function BackOffice() {
         }
         {editProd === false ? null :
           <>
-            <h5 className={check ? 't-addNewProd mb-3' : 't-addNewProd-Dark'}>
-              Edit a new product to the catalogue
-            </h5>
+            <div>
+              <h6 onClick={() => setEditProd(false)}
+                className={check ? 'dark-text' : 'light-text'}>
+                ← Back
+              </h6>
+              <h5 className={check ? 't-addNewProd mb-3' : 't-addNewProd-Dark'}>
+                Edit a product in the catalogue
+              </h5>
+            </div>
             <RB.Col md={6}>
               <div>
                 <div className='card-container'>
@@ -54,10 +66,10 @@ export default function BackOffice() {
                     editProd={editProd}
                     setNewProd={setNewProd}
                     setEditProd={setEditProd}
-                    setModalShow={setModalShow}  />
+                    setModalShow={setModalShow} />
                 </div>
-                <EditModal 
-                  modalShow={modalShow} 
+                <EditModal
+                  modalShow={modalShow}
                   setModalShow={setModalShow} />
               </div>
             </RB.Col>

@@ -6,6 +6,34 @@
     justify-content: center;
     min-height: 89vh;
 
+    .dark-text {
+        color: black;
+        cursor: pointer;
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .light-text {
+        color: white;
+        cursor: pointer;
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .dark-text:hover {
+        color: white;
+        cursor: pointer;
+        letter-spacing: 3px;
+        transform: rotateY(-4px);
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .light-text:hover {
+        color: white;
+        cursor: pointer;
+        letter-spacing: 3px;
+        transform: rotateY(-4px);
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
     .t-BO {
         text-align: center;
         text-align: center;

@@ -151,18 +151,6 @@ export default function Form() {
     )
 }
 
-// export const initialState = {
-//     name: '',
-//     description: '',
-//     price: '',
-//     category: '',
-//     image: '',
-//     file: {
-//         bucket: '',
-//         region: '',
-//         key: ''
-//     }
-// }
 
 export function UpdateForm() {
     const initialState = {
