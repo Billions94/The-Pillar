@@ -38,8 +38,8 @@ export default function Home() {
         <div className='card-container'>
           <>
             {!product ? null : product.map((item, idx) => (
-              <RB.Col lg={3}>
-                <RB.Card key={idx}
+              <RB.Col key={idx} lg={3}>
+                <RB.Card 
                   onClick={() => navigate(`/product/${item.id}`)}
                   className='productCard'>
                   <RB.Card.Header className='card-header'>
