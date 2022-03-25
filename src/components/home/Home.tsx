@@ -1,6 +1,7 @@
 import * as RB from 'react-bootstrap'
 import { API, graphqlOperation } from 'aws-amplify'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { listProducts } from '../../graphql/queries'
 import { darkModeState, productState, refreshState } from '../atoms'
@@ -9,6 +10,7 @@ import './styles.scss'
 export default function Home() {
 
 
+  const navigate = useNavigate()
   const [product, updateProduct] = useRecoilState(productState)
   const darkMode = useRecoilValue(darkModeState)
   const refresh = useRecoilValue(refreshState)
@@ -37,7 +39,9 @@ export default function Home() {
           <>
             {!product ? null : product.map((item, idx) => (
               <RB.Col lg={3}>
-                <RB.Card key={idx} className='productCard'>
+                <RB.Card key={idx}
+                  onClick={() => navigate(`/product/${item.id}`)}
+                  className='productCard'>
                   <RB.Card.Header className='card-header'>
                     <RB.Image src={item.image} alt='image'
                       className='card-img' />
