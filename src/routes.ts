@@ -5,6 +5,6 @@ import Product from './components/home/ProductInfo';
 export const routes: Array<[string, React.FC]> = [
     ["/", Home],
     ["/backoffice", BackOffice],
-    ["/:id/product", BackOffice]
+    ["/product/:id", BackOffice]
  
 ]
