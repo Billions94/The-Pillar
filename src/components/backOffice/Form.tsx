@@ -25,6 +25,7 @@ export default function Form() {
         }
     }
 
+
     const [newProduct, updateNewProduct] = useState(initialState)
     const [refresh, setRefresh] = useRecoilState(Atom.refreshState)
     const [product, updateProduct] = useRecoilState(Atom.productState)
