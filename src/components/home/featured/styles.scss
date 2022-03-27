@@ -33,6 +33,14 @@
             }
         }
 
+        .top-left:hover {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/2560px-Flag_of_Nigeria.svg.png');
+            background-repeat: cover no-repeat;
+            background-size: cover;
+            background-position: 50% 70%;
+            transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
         .top-right {
             height: 42vh;
             background-color: antiquewhite;
@@ -46,6 +54,16 @@
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
             }
+
+        }
+        
+        .top-right:hover {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/1599px-Flag_of_Ghana.svg.png');
+            background-repeat: cover no-repeat;
+            background-size: contain;
+            background-position: 50% 70%;
+            transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
+            color: white;
         }
 
         .bottom-left {
@@ -63,6 +81,15 @@
                 font-family: 'Smooch Sans', sans-serif;
                 color: white;
             }
+
+        }
+
+        .bottom-left:hover {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Jamaica.svg/1600px-Flag_of_Jamaica.svg.png');
+            background-repeat: cover no-repeat;
+            background-size: cover;
+            background-position: 50% 70%;
+            transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .bottom-right {
@@ -78,6 +105,15 @@
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
             }
+
+        }
+
+        .bottom-right:hover {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/800px-Flag_of_South_Africa.svg.png');
+            background-repeat: cover no-repeat;
+            background-size: cover;
+            background-position: 50% 70%;
+            transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
         }
     }
 
@@ -116,6 +152,14 @@
             }
         }
 
+        .top-left:hover {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/2560px-Flag_of_Nigeria.svg.png');
+            background-repeat: cover no-repeat;
+            background-size: cover;
+            background-position: 50% 70%;
+            transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
         .top-right {
             height: 42vh;
             background-color: antiquewhite;
@@ -129,6 +173,16 @@
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
             }
+
+        }
+        
+        .top-right:hover {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/1599px-Flag_of_Ghana.svg.png');
+            background-repeat: cover no-repeat;
+            background-size: contain;
+            background-position: 50% 70%;
+            transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
+            color: white;
         }
 
         .bottom-left {
@@ -146,6 +200,15 @@
                 font-family: 'Smooch Sans', sans-serif;
                 color: white;
             }
+
+        }
+
+        .bottom-left:hover {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Jamaica.svg/1600px-Flag_of_Jamaica.svg.png');
+            background-repeat: cover no-repeat;
+            background-size: cover;
+            background-position: 50% 70%;
+            transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .bottom-right {
@@ -161,6 +224,15 @@
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
             }
+
+        }
+
+        .bottom-right:hover {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/800px-Flag_of_South_Africa.svg.png');
+            background-repeat: cover no-repeat;
+            background-size: cover;
+            background-position: 50% 70%;
+            transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
         }
     }
 }
