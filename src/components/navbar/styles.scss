@@ -8,6 +8,24 @@
     background: rgba(44, 44, 44, 0.87);
 }
 
+@keyframes fadeIn {
+    50% {
+        letter-spacing: 3px;
+    }
+    100% {
+        letter-spacing: 0px;
+    }
+}
+
+@keyframes fadeIn-dark {
+    50% {
+        letter-spacing: 3px;
+    }
+    100% {
+        letter-spacing: 0px;
+    }
+}
+
 #myNavBar {
     position: sticky;
     top: 0;
@@ -30,6 +48,7 @@
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
                 transition-delay: ease-in 0.5s;
+                animation: fadeIn 1.5s ease-in-out;
                 transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             }
 
@@ -41,7 +60,9 @@
                 line-break: 18px;
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
-                transform: translateY(-4px);
+                // transform: translateY(-4px);
+                // animation: fadeIn 2.5s ease-in-out;
+                // animation-iteration-count: infinite;
                 transition-delay: ease-in 0.5s;
                 transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             }
@@ -55,6 +76,8 @@
                 font-family: 'Smooch Sans', sans-serif;
                 color: white;
                 transition-delay: ease-in 0.5s;
+                animation: fadeIn-dark 1.5s ease-in-out;
+                animation-play-state: initial;
                 transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             }
 
@@ -66,7 +89,7 @@
                 line-break: 18px;
                 font-family: 'Bitter', serif;
                 font-family: 'Smooch Sans', sans-serif;
-                transform: translateY(-4px);
+                // transform: translateY(-4px);
                 transition-delay: ease-in 0.5s;
                 transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             }

@@ -2,7 +2,7 @@
 
 
 #feature {
-    margin-top: 10px;
+    margin-top: 5px;
     width: 100vw;
     height: 100vh;
     padding: 8px 80px;
@@ -22,6 +22,8 @@
             height: 40vh;
             background: orange;
             padding: 20px;
+            cursor: pointer;
+            box-shadow: -2px 3px 15px rgb(148, 148, 148);
 
             .Nig {
                 text-align: left;
@@ -45,6 +47,8 @@
             height: 42vh;
             background-color: antiquewhite;
             padding: 20px;
+            cursor: pointer;
+            box-shadow: 0px 3px 15px rgb(148, 148, 148);
 
             .Gh {
                 text-align: left;
@@ -56,7 +60,7 @@
             }
 
         }
-        
+
         .top-right:hover {
             background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/1599px-Flag_of_Ghana.svg.png');
             background-repeat: cover no-repeat;
@@ -70,7 +74,9 @@
             height: 40vh;
             background: black;
             padding: 20px;
+            cursor: pointer;
             color: white;
+            box-shadow: -2px 3px 15px rgb(148, 148, 148);
 
             .Jac {
                 text-align: left;
@@ -93,9 +99,11 @@
         }
 
         .bottom-right {
-            height: 42vh;
+            height: 40vh;
             background: azure;
             padding: 20px;
+            cursor: pointer;
+            box-shadow: -2px 3px 15px rgb(148, 148, 148);
 
             .Sa {
                 text-align: left;
@@ -120,7 +128,7 @@
 }
 
 #feature-dark {
-    margin-top: 10px;
+    margin-top: 5px;
     width: 100vw;
     height: 100vh;
     padding: 8px 80px;
@@ -136,11 +144,14 @@
     }
 
 
+
     .featured-container {
         .top-left {
             height: 40vh;
             background: orange;
             padding: 20px;
+            cursor: pointer;
+            box-shadow: -2px 3px 15px rgb(41, 41, 41);
 
             .Nig {
                 text-align: left;
@@ -164,6 +175,8 @@
             height: 42vh;
             background-color: antiquewhite;
             padding: 20px;
+            cursor: pointer;
+            box-shadow: -2px 3px 15px rgb(41, 41, 41);
 
             .Gh {
                 text-align: left;
@@ -175,7 +188,7 @@
             }
 
         }
-        
+
         .top-right:hover {
             background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/1599px-Flag_of_Ghana.svg.png');
             background-repeat: cover no-repeat;
@@ -189,7 +202,9 @@
             height: 40vh;
             background: black;
             padding: 20px;
+            cursor: pointer;
             color: white;
+            box-shadow: -2px 3px 15px rgb(41, 41, 41);
 
             .Jac {
                 text-align: left;
@@ -212,9 +227,11 @@
         }
 
         .bottom-right {
-            height: 42vh;
+            height: 40vh;
             background: azure;
             padding: 20px;
+            cursor: pointer;
+            box-shadow: -2px 3px 15px rgb(41, 41, 41);
 
             .Sa {
                 text-align: left;
@@ -235,4 +252,5 @@
             transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
         }
     }
+
 }
