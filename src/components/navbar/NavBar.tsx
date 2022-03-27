@@ -25,7 +25,7 @@ export default function NavBar() {
                 <div className='brand-container'>
                     <RB.Image src={check ? Icon.navbarBrand : Icon.navbarBrandDark} alt='' className='brandIcon' />
                     <>
-                        <span className={check ? 'd-text' : 'd-textDark'}>Dagger</span>
+                        <span className={check ? 'd-text' : 'd-textDark'}>The Pillar</span>
                     </>
                 </div>
             </RB.Navbar.Brand>
