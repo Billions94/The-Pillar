@@ -154,3 +154,27 @@
         }
     }
 }
+
+#product {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .img {
+        width: 100%;
+        object-fit: stretch;
+        height: 500px;
+    }
+
+    .card-container {
+        width: 100%;
+
+        .title {
+            text-align: center;
+        }
+    }
+
+    .product-info {
+
+    }
+}
