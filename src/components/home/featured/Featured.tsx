@@ -9,7 +9,7 @@ export default function Featured () {
     const check: boolean = darkMode === false
 
     return (
-        <Container id={check ? 'header' : 'header-dark'} fluid >
+        <Container id={check ? 'feature' : 'feature-dark'} fluid >
             <Row>
                 <Col sm={12} md={2} lg={2}>
                     <h1 className='t-header text-left'>Featured</h1>
