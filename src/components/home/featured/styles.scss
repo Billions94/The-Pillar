@@ -15,6 +15,32 @@
         font-family: 'Smooch Sans', sans-serif;
     }
 
+    .featured-container {
+        .top-left {
+            height: 50vh;
+            background: orange;
+            padding: 20px;
+        }
+
+        .top-right {
+            height: 50vh;
+            background-color: antiquewhite;
+            padding: 20px;
+        }
+
+        .bottom-left {
+            height: 50vh;
+            background: black;
+            padding: 20px;
+        }
+
+        .bottom-right {
+            height: 50vh;
+            background: azure;
+            padding: 20px;
+        }
+    }
+
 }
 
 #header-dark {
@@ -30,5 +56,32 @@
         font-family: 'Bitter', serif;
         font-family: 'Smooch Sans', sans-serif;
         color: white;
+    }
+
+
+    .featured-container {
+        .top-left {
+            height: 50vh;
+            background: orange;
+            padding: 20px;
+        }
+
+        .top-right {
+            height: 50vh;
+            background-color: antiquewhite;
+            padding: 20px;
+        }
+
+        .bottom-left {
+            height: 50vh;
+            background: black;
+            padding: 20px;
+        }
+
+        .bottom-right {
+            height: 50vh;
+            background: azure;
+            padding: 20px;
+        }
     }
 }

@@ -14,3 +14,5 @@ type Product @model @auth(rules: [{ allow: owner, operations: [create, update, d
     # Reference the S3Object type from a field.
   file: S3Object
 }
+
+
