@@ -33,7 +33,7 @@ export default function Catalogue() {
   return (
     <>
       <RB.Col className='mt-5' md={2} lg={2}>
-        <div className="t-catalogue mt-3 mb-5">Catalogue </div>
+        <h1 className="t-catalogue mt-3 mb-5">Catalogue </h1>
       </RB.Col>
       <RB.Col className='mt-5' md={10} lg={10}>
         <div className='card-container'>

@@ -1,14 +1,9 @@
 import * as RB from 'react-bootstrap'
-import { API, graphqlOperation } from 'aws-amplify'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useRecoilState, useRecoilValue } from 'recoil'
-import { listProducts } from '../../graphql/queries'
-import { darkModeState, productState, refreshState } from '../atoms'
-import Loader from './loader/Loader'
-import './styles.scss'
+import { useRecoilValue } from 'recoil'
+import { darkModeState } from '../atoms'
 import Catalogue from './catalogue/Catalogue'
-import Header from './header/Header'
+import Featured from './featured/Featured'
+import './styles.scss'
 
 export default function Home() {
 
@@ -17,7 +12,7 @@ export default function Home() {
 
   return (
     <RB.Row id={check ? 'home' : 'homeDark'} className='p-4'>
-      <Header />
+      <Featured />
       <Catalogue />
     </RB.Row>
   )
