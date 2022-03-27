@@ -70,7 +70,7 @@
         transition-delay: ease-in 5s;
         transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
         transition-property: transform, box-shadow;
-        z-index: 999;
+        z-index: 99;
 
         .card-header {
             border: none;
@@ -150,7 +150,7 @@
         transition-delay: ease-in-out 5s;
         transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
         transition-property: transform, box-shadow;
-        z-index: 999;
+        z-index: 99;
 
         .card-header {
             border: none;
