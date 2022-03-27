@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { listProducts } from '../../../graphql/queries'
-import { productState, refreshState } from '../../atoms'
+import { productState, refreshState, darkModeState } from '../../atoms'
 import Loader from '../loader/Loader'
 import './styles.scss'
 
@@ -13,6 +13,8 @@ export default function Catalogue() {
   const navigate = useNavigate()
   const [product, updateProduct] = useRecoilState(productState)
   const refresh = useRecoilValue(refreshState)
+  const darkMode = useRecoilValue(darkModeState)
+  const check: boolean = darkMode === false
  
 
   async function getProduct() {
@@ -31,7 +33,7 @@ export default function Catalogue() {
   }, [refresh])
 
   return (
-    <>
+    <RB.Row id={check ? 'catalogue' : 'catalogue-dark'}>
       <RB.Col className='mt-5' md={2} lg={2}>
         <h1 className="t-catalogue mt-3 mb-5">Catalogue </h1>
       </RB.Col>
@@ -59,6 +61,6 @@ export default function Catalogue() {
           </>
         </div>
       </RB.Col>
-    </>
+    </RB.Row>
   )
 }
