@@ -8,6 +8,7 @@ import { darkModeState, productState, refreshState } from '../atoms'
 import Loader from './loader/Loader'
 import './styles.scss'
 import Catalogue from './catalogue/Catalogue'
+import Header from './header/Header'
 
 export default function Home() {
 
@@ -16,6 +17,7 @@ export default function Home() {
 
   return (
     <RB.Row id={check ? 'home' : 'homeDark'} className='p-4'>
+      <Header />
       <Catalogue />
     </RB.Row>
   )

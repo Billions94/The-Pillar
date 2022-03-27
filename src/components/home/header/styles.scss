@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Smooch+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
+#header {
+    .t-header {
+        text-align: center;
+        font-size: 55px;
+        font-weight: 700;
+        line-break: 20px;
+        font-family: 'Bitter', serif;
+        font-family: 'Smooch Sans', sans-serif;
+    }
+
+}
+
+#header-dark {
+    .t-header {
+        text-align: center;
+        font-size: 55px;
+        font-weight: 700;
+        line-break: 20px;
+        font-family: 'Bitter', serif;
+        font-family: 'Smooch Sans', sans-serif;
+        color: white;
+    }
+}

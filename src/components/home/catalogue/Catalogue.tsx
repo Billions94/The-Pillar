@@ -32,10 +32,10 @@ export default function Catalogue() {
 
   return (
     <>
-      <RB.Col md={2} lg={2}>
+      <RB.Col className='mt-5' md={2} lg={2}>
         <div className="t-catalogue mt-3 mb-5">Catalogue </div>
       </RB.Col>
-      <RB.Col md={10} lg={10}>
+      <RB.Col className='mt-5' md={10} lg={10}>
         <div className='card-container'>
           <>
             {!product ? <Loader /> : product.map((item, idx) => (
