@@ -19,4 +19,9 @@ export const cardInfo: CardInfor[] = [
         description: 'Edit a product from the catalogue',
         action: () => true
     },
+    {
+        img: Icon.newHistory,
+        description: 'Add a new history to the catalogue',
+        action: () => true
+    }
 ]

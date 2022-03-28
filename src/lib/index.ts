@@ -13,6 +13,7 @@ export const siginIconDark: string = "https://img.icons8.com/material/50/ffffff/
 
 export const newProdIcon: string = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi7.pngguru.com%2Fpreview%2F822%2F369%2F85%2Fcomputer-icons-icon-design-new-product-development-desktop-wallpaper-symbol.jpg&f=1&nofb=1"
 export const editProdIcon: string = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.UL48nWc-iuJ8WH1Q0zpvegHaHa%26pid%3DApi&f=1"
+export const newHistory: string = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsecure.webtoolhub.com%2Fstatic%2Fresources%2Ficons%2Fset57%2F2054fdfd.png&f=1&nofb=1"
 
 export const nigerianFlag: string = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/2560px-Flag_of_Nigeria.svg.png'
 export const ghanaianFlag: string = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/1599px-Flag_of_Ghana.svg.png'

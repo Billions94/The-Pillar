@@ -357,3 +357,15 @@ export function UpdateForm() {
         </RB.Form>
     )
 }
+
+export function HistoryForm() {
+
+    const initialState = {
+        title: '',
+        content: '',
+    }
+    return(
+        <>
+        </>
+    )
+}

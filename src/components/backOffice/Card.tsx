@@ -11,9 +11,11 @@ interface CardProps {
     setNewProd: React.Dispatch<SetStateAction<boolean>>
     setEditProd: React.Dispatch<SetStateAction<boolean>>
     setModalShow?: React.Dispatch<SetStateAction<boolean>>
+    history?: boolean
+    setHistory?: React.Dispatch<SetStateAction<boolean>>
 }
 
-export default function Card({ newProd, editProd, setNewProd, setEditProd }: CardProps) {
+export default function Card({ newProd, editProd, setNewProd, setEditProd, history, setHistory }: CardProps) {
 
     const darkMode = useRecoilValue(darkModeState)
     const check: boolean = darkMode === false
@@ -23,6 +25,8 @@ export default function Card({ newProd, editProd, setNewProd, setEditProd }: Car
             newProd === false ? setNewProd(true) : setNewProd(false)
         } else if (idx === 1) {
             editProd === false ? setEditProd(true) : setEditProd(false)
+        } else if (idx === 2) {
+            history === false ? setHistory && setHistory(true) : setHistory &&  setHistory(false)
         }
     }
 
