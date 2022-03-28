@@ -103,6 +103,46 @@ export type DeleteProductInput = {
   id: string,
 };
 
+export type CreateHistoryInput = {
+  id?: string | null,
+  title: string,
+  content: string,
+  image?: string | null,
+  file?: S3ObjectInput | null,
+};
+
+export type ModelHistoryConditionInput = {
+  title?: ModelStringInput | null,
+  content?: ModelStringInput | null,
+  image?: ModelStringInput | null,
+  and?: Array< ModelHistoryConditionInput | null > | null,
+  or?: Array< ModelHistoryConditionInput | null > | null,
+  not?: ModelHistoryConditionInput | null,
+};
+
+export type History = {
+  __typename: "History",
+  id?: string,
+  title?: string,
+  content?: string,
+  image?: string | null,
+  file?: S3Object,
+  createdAt?: string,
+  updatedAt?: string,
+};
+
+export type UpdateHistoryInput = {
+  id: string,
+  title?: string | null,
+  content?: string | null,
+  image?: string | null,
+  file?: S3ObjectInput | null,
+};
+
+export type DeleteHistoryInput = {
+  id: string,
+};
+
 export type ModelProductFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
@@ -134,6 +174,22 @@ export type ModelIDInput = {
 export type ModelProductConnection = {
   __typename: "ModelProductConnection",
   items?:  Array<Product | null >,
+  nextToken?: string | null,
+};
+
+export type ModelHistoryFilterInput = {
+  id?: ModelIDInput | null,
+  title?: ModelStringInput | null,
+  content?: ModelStringInput | null,
+  image?: ModelStringInput | null,
+  and?: Array< ModelHistoryFilterInput | null > | null,
+  or?: Array< ModelHistoryFilterInput | null > | null,
+  not?: ModelHistoryFilterInput | null,
+};
+
+export type ModelHistoryConnection = {
+  __typename: "ModelHistoryConnection",
+  items?:  Array<History | null >,
   nextToken?: string | null,
 };
 
@@ -212,6 +268,75 @@ export type DeleteProductMutation = {
   } | null,
 };
 
+export type CreateHistoryMutationVariables = {
+  input?: CreateHistoryInput,
+  condition?: ModelHistoryConditionInput | null,
+};
+
+export type CreateHistoryMutation = {
+  createHistory?:  {
+    __typename: "History",
+    id: string,
+    title: string,
+    content: string,
+    image?: string | null,
+    file?:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateHistoryMutationVariables = {
+  input?: UpdateHistoryInput,
+  condition?: ModelHistoryConditionInput | null,
+};
+
+export type UpdateHistoryMutation = {
+  updateHistory?:  {
+    __typename: "History",
+    id: string,
+    title: string,
+    content: string,
+    image?: string | null,
+    file?:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteHistoryMutationVariables = {
+  input?: DeleteHistoryInput,
+  condition?: ModelHistoryConditionInput | null,
+};
+
+export type DeleteHistoryMutation = {
+  deleteHistory?:  {
+    __typename: "History",
+    id: string,
+    title: string,
+    content: string,
+    image?: string | null,
+    file?:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type GetProductQueryVariables = {
   id?: string,
 };
@@ -252,6 +377,56 @@ export type ListProductsQuery = {
       description: string,
       price: string,
       category: string,
+      image?: string | null,
+      file?:  {
+        __typename: "S3Object",
+        bucket: string,
+        region: string,
+        key: string,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetHistoryQueryVariables = {
+  id?: string,
+};
+
+export type GetHistoryQuery = {
+  getHistory?:  {
+    __typename: "History",
+    id: string,
+    title: string,
+    content: string,
+    image?: string | null,
+    file?:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListHistorysQueryVariables = {
+  filter?: ModelHistoryFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListHistorysQuery = {
+  listHistorys?:  {
+    __typename: "ModelHistoryConnection",
+    items:  Array< {
+      __typename: "History",
+      id: string,
+      title: string,
+      content: string,
       image?: string | null,
       file?:  {
         __typename: "S3Object",
@@ -314,6 +489,60 @@ export type OnDeleteProductSubscription = {
     description: string,
     price: string,
     category: string,
+    image?: string | null,
+    file?:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateHistorySubscription = {
+  onCreateHistory?:  {
+    __typename: "History",
+    id: string,
+    title: string,
+    content: string,
+    image?: string | null,
+    file?:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateHistorySubscription = {
+  onUpdateHistory?:  {
+    __typename: "History",
+    id: string,
+    title: string,
+    content: string,
+    image?: string | null,
+    file?:  {
+      __typename: "S3Object",
+      bucket: string,
+      region: string,
+      key: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteHistorySubscription = {
+  onDeleteHistory?:  {
+    __typename: "History",
+    id: string,
+    title: string,
+    content: string,
     image?: string | null,
     file?:  {
       __typename: "S3Object",

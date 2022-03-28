@@ -1,3 +1,4 @@
+import React from 'react';
 import * as RB from 'react-bootstrap'
 import { API, graphqlOperation } from 'aws-amplify'
 import { useEffect } from 'react'

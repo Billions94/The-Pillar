@@ -15,4 +15,13 @@ type Product @model @auth(rules: [{ allow: owner, operations: [create, update, d
   file: S3Object
 }
 
+type History @model @auth(rules: [{ allow: owner, operations: [create, update, delete] }]){
+  id: ID!
+  title: String!
+  content: String!
+  image: String
+    # Reference the S3Object type from a field.
+  file: S3Object
+}
+
 
