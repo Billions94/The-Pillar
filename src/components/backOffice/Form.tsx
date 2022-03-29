@@ -363,9 +363,117 @@ export function HistoryForm() {
     const initialState = {
         title: '',
         content: '',
+        image: '',
+        file: {
+            bucket: '',
+            region: '',
+            key: ''
+        }
     }
-    return(
+
+    const navigate = useNavigate();
+    const [createHistory, updateCreateHistory] = useState(initialState)
+    const [refresh, setRefresh] = useRecoilState(Atom.refreshState)
+    const [history, updateHistory] = useRecoilState(Atom.historyState)
+    const darkMode = useRecoilValue(Atom.darkModeState)
+    const check: boolean = darkMode === false
+
+    function updateInput(key: string, value: string) {
+        updateCreateHistory({ ...createHistory, [key]: value })
+    }
+
+    function target(e: any) {
+        if (e.target && e.target.files[0]) {
+            const file = e.target.files[0]
+            console.log('This is the file', file)
+
+            Storage.put(file.name, file, {
+                contentType: 'image/png|image/jpeg|image/jpg'
+            }).then((response) => {
+                const image = {
+                    bucket: awsExports.aws_user_files_s3_bucket,
+                    region: awsExports.aws_user_files_s3_bucket_region,
+                    key: 'public/' + file.name
+                }
+                updateCreateHistory({ ...createHistory, file: image })
+                console.log('Sucessfully uploaded', image)
+            })
+        }
+    }
+
+    async function create() {
+        try {
+            const newHistory = { ...createHistory }
+
+            if (createHistory.image === null || undefined) {
+                const imageFilePath = createHistory.file.key.split('/').slice(-1).join()
+
+                const imageUrl = await Storage.get(imageFilePath, { expires: 10080 })
+                newHistory.image = imageUrl
+            }
+
+            updateHistory([...history, newHistory]);
+            updateCreateHistory(initialState);
+            refresh === false && setRefresh(true)
+            navigate('/')
+            await API.graphql(graphqlOperation(createHistory, { input: newHistory }));
+        } catch (error) {
+            console.log('Unable to create history', error)
+        }
+    }
+
+    return (
         <>
+            <RB.Form id='form'>
+                <RB.FormGroup>
+                    <RB.FormControl
+                        className={check ? 'formControl' : 'formControl-Dark'}
+                        value={createHistory.title}
+                        type='text'
+                        onChange={(e) => updateInput('name', e.target.value)}
+                        placeholder='title' />
+                </RB.FormGroup>
+                <RB.FormGroup>
+                    <RB.FormControl
+                        className={check ? 'formControl' : 'formControl-Dark'}
+                        value={createHistory.content}
+                        type='text'
+                        onChange={(e) => updateInput('description', e.target.value)}
+                        placeholder='content' />
+                </RB.FormGroup>
+                <RB.FormGroup>
+                    <RB.FormControl
+                        className={check ? 'formControl' : 'formControl-Dark'}
+                        type='text'
+                        onChange={(e) => updateInput('image', e.target.value)}
+                        placeholder='image url' />
+                </RB.FormGroup>
+                <RB.FormGroup>
+                    <RB.FormControl
+                        className={check ? 'formControl' : 'formControl-Dark'}
+                        type='file'
+                        onChange={(e) => target(e)}
+                        placeholder='image url' />
+                </RB.FormGroup>
+                <div className='d-flex justify-content-center mt-5'>
+                    {!createHistory.image ?
+                        <RB.Button
+                            disabled
+                            className={check ? 'addProdBtn' : 'addProdBtn-dark'}
+                            variant='success'>
+                            <span className='btn-span'>Add History</span>
+                        </RB.Button>
+                        :
+                        <RB.Button
+                            onClick={create}
+                            className={check ? 'addProdBtn' : 'addProdBtn-dark'}
+                            variant='success'>
+                            <span className='btn-span'>Add History</span>
+                        </RB.Button>
+                    }
+                </div>
+
+            </RB.Form>
         </>
     )
 }

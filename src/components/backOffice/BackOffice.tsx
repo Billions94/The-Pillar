@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import * as RB from 'react-bootstrap'
-import Form from './Form'
+import Form, { HistoryForm } from './Form'
 import Card, { ProdCard } from './Card'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { darkModeState, modalState } from '../atoms'
@@ -90,7 +90,7 @@ export default function BackOffice() {
               </h5>
             </div>
             <RB.Col md={6}>
-              <Form />
+              <HistoryForm />
             </RB.Col>
           </>}
       </>
@@ -99,21 +99,3 @@ export default function BackOffice() {
 }
 
 
-
-
-{/* {products.map((item, idx) => (
-                  <div key={idx} className={check ? 'card-holder' : 'card-holderDark'}>
-                    <RB.Card onClick={() => toggle(idx)}
-                      className='card'>
-                      <RB.Card.Header className='card-header'>
-                        <RB.Image className='card-img' src={item.image} alt='' />
-                      </RB.Card.Header>
-                      <RB.Card.Body className='card-body'>
-                        <h6 className='c-text'>{item.name}</h6>
-                        <h6 className='c-text'>{item.description}</h6>
-                        <h6 className='c-text'>{item.price}</h6>
-                        <h6 className='c-text'>{item.category}</h6>
-                      </RB.Card.Body>
-                    </RB.Card>
-                  </div>
-))} */}

@@ -30,6 +30,27 @@ export const productState = atom<Product[]>({
     effects_UNSTABLE: [persistAtom]
 })
 
+export interface History {
+    id?: string
+    title: string
+    content: string
+    image: string
+    file?: {
+        bucket: string
+        region: string
+        key: string
+    }
+    createdAt?: Date
+    updatedAt?: Date
+    owner?: string
+}
+
+export const historyState = atom<History[]>({
+    key: 'history',
+    default: [],
+    effects_UNSTABLE: [persistAtom]
+})
+
 export const darkModeState = atom<true | false>({
     key: 'darkmode',
     default: false,
