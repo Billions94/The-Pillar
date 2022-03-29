@@ -430,7 +430,7 @@ export function HistoryForm() {
                         className={check ? 'formControl' : 'formControl-Dark'}
                         value={createHistory.title}
                         type='text'
-                        onChange={(e) => updateInput('name', e.target.value)}
+                        onChange={(e) => updateInput('title', e.target.value)}
                         placeholder='title' />
                 </RB.FormGroup>
                 <RB.FormGroup>
@@ -438,7 +438,7 @@ export function HistoryForm() {
                         className={check ? 'formControl' : 'formControl-Dark'}
                         value={createHistory.content}
                         type='text'
-                        onChange={(e) => updateInput('description', e.target.value)}
+                        onChange={(e) => updateInput('content', e.target.value)}
                         placeholder='content' />
                 </RB.FormGroup>
                 <RB.FormGroup>

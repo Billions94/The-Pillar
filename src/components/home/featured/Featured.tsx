@@ -1,7 +1,8 @@
 import { API, graphqlOperation } from 'aws-amplify';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
 import { useRecoilState, useRecoilValue } from 'recoil'
+import { HistoryContent } from '.';
 import { listHistorys } from '../../../graphql/queries';
 import { darkModeState, historyState } from '../../atoms'
 import './styles.scss'
@@ -16,10 +17,15 @@ export default function Featured() {
         try {
             const { data }: any = await API.graphql(graphqlOperation(listHistorys))
             const { items } = data.listHistorys
+            updateHistory(items)
         } catch (error) {
             console.log('Error getting history: ', error)
         }
     }
+
+    useEffect(() => {
+        fetchHistory()
+    }, [])
 
     return (
         <Container id={check ? 'feature' : 'feature-dark'} fluid >
@@ -29,7 +35,20 @@ export default function Featured() {
                 </Col>
                 <Col className='featured-container' sm={12} md={10} lg={20}>
                     <Row className='featured-grid'>
-                        <Col className='top-left' sm={12} md={6} lg={6}>
+                        { HistoryContent.map((item, idx) => (
+                            <Col key={idx} className={item.className} sm={12} md={6} lg={6}>
+                            <h1 className={item.className2}>{item.header}</h1>
+                            {history.map((history, idx) => {
+                                <div key={idx}>
+                                    <h6>{history.title}</h6>
+                                    <p>{history.content}</p>
+                                </div>
+                            })}
+                        </Col>
+                        ))
+
+                        }
+                        {/* <Col className='top-left' sm={12} md={6} lg={6}>
                             <h1 className='Nig '>Nigerian History</h1>
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint assumenda repellat expedita eveniet dolor temporibus aspernatur velit consequatur iste? Culpa optio maiores necessitatibus aperiam corporis asperiores laborum minima, fugit nam?
                         </Col>
@@ -44,7 +63,7 @@ export default function Featured() {
                         <Col className='bottom-right' sm={12} md={6} lg={6}>
                             <h1 className='Sa'>South African History</h1>
                             lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nisi numquam aspernatur autem delectus? Sapiente quam non, aut, rerum corrupti ea similique totam quas vel repudiandae culpa incidunt architecto perspiciatis.
-                        </Col>
+                        </Col> */}
                     </Row>
                 </Col>
             </Row>
