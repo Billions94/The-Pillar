@@ -1,13 +1,25 @@
+import { API, graphqlOperation } from 'aws-amplify';
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
-import { useRecoilValue } from 'recoil'
-import { darkModeState } from '../../atoms'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { listHistorys } from '../../../graphql/queries';
+import { darkModeState, historyState } from '../../atoms'
 import './styles.scss'
 
 export default function Featured() {
 
     const darkMode = useRecoilValue(darkModeState)
     const check: boolean = darkMode === false
+    const [history, updateHistory] = useRecoilState(historyState)
+
+    async function fetchHistory() {
+        try {
+            const { data }: any = await API.graphql(graphqlOperation(listHistorys))
+            const { items } = data.listHistorys
+        } catch (error) {
+            console.log('Error getting history: ', error)
+        }
+    }
 
     return (
         <Container id={check ? 'feature' : 'feature-dark'} fluid >
