@@ -3,7 +3,7 @@ import * as Atom from '../atoms'
 import React, { useState } from 'react'
 import { Storage, API, graphqlOperation } from 'aws-amplify'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { createProduct, updateProduct, deleteProduct } from '../../graphql/mutations'
+import { createProduct, updateProduct, deleteProduct, createHistory } from '../../graphql/mutations'
 import awsExports from '../../aws-exports'
 import { useNavigate } from 'react-router-dom'
 import { listProducts } from '../../graphql/queries'
@@ -372,14 +372,14 @@ export function HistoryForm() {
     }
 
     const navigate = useNavigate();
-    const [createHistory, updateCreateHistory] = useState(initialState)
+    const [newHistory, updateNewHistory] = useState(initialState)
     const [refresh, setRefresh] = useRecoilState(Atom.refreshState)
     const [history, updateHistory] = useRecoilState(Atom.historyState)
     const darkMode = useRecoilValue(Atom.darkModeState)
     const check: boolean = darkMode === false
 
     function updateInput(key: string, value: string) {
-        updateCreateHistory({ ...createHistory, [key]: value })
+        updateNewHistory({ ...newHistory, [key]: value })
     }
 
     function target(e: any) {
@@ -395,7 +395,7 @@ export function HistoryForm() {
                     region: awsExports.aws_user_files_s3_bucket_region,
                     key: 'public/' + file.name
                 }
-                updateCreateHistory({ ...createHistory, file: image })
+                updateNewHistory({ ...newHistory, file: image })
                 console.log('Sucessfully uploaded', image)
             })
         }
@@ -403,20 +403,20 @@ export function HistoryForm() {
 
     async function create() {
         try {
-            const newHistory = { ...createHistory }
+            const historyItem = { ...newHistory }
 
-            if (createHistory.image === null || undefined) {
-                const imageFilePath = createHistory.file.key.split('/').slice(-1).join()
+            if (newHistory.image === null || undefined) {
+                const imageFilePath = newHistory.file.key.split('/').slice(-1).join()
 
                 const imageUrl = await Storage.get(imageFilePath, { expires: 10080 })
-                newHistory.image = imageUrl
+                historyItem.image = imageUrl
             }
 
-            updateHistory([...history, newHistory]);
-            updateCreateHistory(initialState);
+            updateHistory([...history, historyItem]);
+            updateNewHistory(initialState);
             refresh === false && setRefresh(true)
             navigate('/')
-            await API.graphql(graphqlOperation(createHistory, { input: newHistory }));
+            await API.graphql(graphqlOperation(createHistory, { input: historyItem }));
         } catch (error) {
             console.log('Unable to create history', error)
         }
@@ -428,7 +428,7 @@ export function HistoryForm() {
                 <RB.FormGroup>
                     <RB.FormControl
                         className={check ? 'formControl' : 'formControl-Dark'}
-                        value={createHistory.title}
+                        value={newHistory.title}
                         type='text'
                         onChange={(e) => updateInput('title', e.target.value)}
                         placeholder='title' />
@@ -436,13 +436,14 @@ export function HistoryForm() {
                 <RB.FormGroup>
                     <RB.FormControl
                         className={check ? 'formControl' : 'formControl-Dark'}
-                        value={createHistory.content}
+                        value={newHistory.content}
                         type='text'
                         onChange={(e) => updateInput('content', e.target.value)}
                         placeholder='content' />
                 </RB.FormGroup>
                 <RB.FormGroup>
                     <RB.FormControl
+                        value={newHistory.image}
                         className={check ? 'formControl' : 'formControl-Dark'}
                         type='text'
                         onChange={(e) => updateInput('image', e.target.value)}
@@ -456,7 +457,7 @@ export function HistoryForm() {
                         placeholder='image url' />
                 </RB.FormGroup>
                 <div className='d-flex justify-content-center mt-5'>
-                    {!createHistory.image ?
+                    {!newHistory.content ?
                         <RB.Button
                             disabled
                             className={check ? 'addProdBtn' : 'addProdBtn-dark'}

@@ -1,6 +1,6 @@
 import { API, graphqlOperation } from 'aws-amplify';
 import React, { useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Image } from 'react-bootstrap'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { HistoryContent } from '.';
 import { listHistorys } from '../../../graphql/queries';
@@ -23,6 +23,8 @@ export default function Featured() {
         }
     }
 
+    console.log('This is the history', history)
+
     useEffect(() => {
         fetchHistory()
     }, [])
@@ -40,8 +42,9 @@ export default function Featured() {
                             <h1 className={item.className2}>{item.header}</h1>
                             {history.map((history, idx) => {
                                 <div key={idx}>
-                                    <h6>{history.title}</h6>
-                                    <p>{history.content}</p>
+                                    <h6 className='text-dark'>{history.title}</h6>
+                                    <p className='text-dark'>{history.content}</p>
+                                    <Image src={history.image} fluid />
                                 </div>
                             })}
                         </Col>
