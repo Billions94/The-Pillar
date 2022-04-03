@@ -108,7 +108,13 @@ export type CreateHistoryInput = {
   title: string,
   content: string,
   image?: string | null,
+  className?: ClassInput | null,
   file?: S3ObjectInput | null,
+};
+
+export type ClassInput = {
+  className?: string | null,
+  className2?: string | null,
 };
 
 export type ModelHistoryConditionInput = {
@@ -126,9 +132,16 @@ export type History = {
   title?: string,
   content?: string,
   image?: string | null,
+  className?: Class,
   file?: S3Object,
   createdAt?: string,
   updatedAt?: string,
+};
+
+export type Class = {
+  __typename: "Class",
+  className?: string | null,
+  className2?: string | null,
 };
 
 export type UpdateHistoryInput = {
@@ -136,6 +149,7 @@ export type UpdateHistoryInput = {
   title?: string | null,
   content?: string | null,
   image?: string | null,
+  className?: ClassInput | null,
   file?: S3ObjectInput | null,
 };
 
@@ -280,6 +294,11 @@ export type CreateHistoryMutation = {
     title: string,
     content: string,
     image?: string | null,
+    className?:  {
+      __typename: "Class",
+      className?: string | null,
+      className2?: string | null,
+    } | null,
     file?:  {
       __typename: "S3Object",
       bucket: string,
@@ -303,6 +322,11 @@ export type UpdateHistoryMutation = {
     title: string,
     content: string,
     image?: string | null,
+    className?:  {
+      __typename: "Class",
+      className?: string | null,
+      className2?: string | null,
+    } | null,
     file?:  {
       __typename: "S3Object",
       bucket: string,
@@ -326,6 +350,11 @@ export type DeleteHistoryMutation = {
     title: string,
     content: string,
     image?: string | null,
+    className?:  {
+      __typename: "Class",
+      className?: string | null,
+      className2?: string | null,
+    } | null,
     file?:  {
       __typename: "S3Object",
       bucket: string,
@@ -402,6 +431,11 @@ export type GetHistoryQuery = {
     title: string,
     content: string,
     image?: string | null,
+    className?:  {
+      __typename: "Class",
+      className?: string | null,
+      className2?: string | null,
+    } | null,
     file?:  {
       __typename: "S3Object",
       bucket: string,
@@ -428,6 +462,11 @@ export type ListHistorysQuery = {
       title: string,
       content: string,
       image?: string | null,
+      className?:  {
+        __typename: "Class",
+        className?: string | null,
+        className2?: string | null,
+      } | null,
       file?:  {
         __typename: "S3Object",
         bucket: string,
@@ -508,6 +547,11 @@ export type OnCreateHistorySubscription = {
     title: string,
     content: string,
     image?: string | null,
+    className?:  {
+      __typename: "Class",
+      className?: string | null,
+      className2?: string | null,
+    } | null,
     file?:  {
       __typename: "S3Object",
       bucket: string,
@@ -526,6 +570,11 @@ export type OnUpdateHistorySubscription = {
     title: string,
     content: string,
     image?: string | null,
+    className?:  {
+      __typename: "Class",
+      className?: string | null,
+      className2?: string | null,
+    } | null,
     file?:  {
       __typename: "S3Object",
       bucket: string,
@@ -544,6 +593,11 @@ export type OnDeleteHistorySubscription = {
     title: string,
     content: string,
     image?: string | null,
+    className?:  {
+      __typename: "Class",
+      className?: string | null,
+      className2?: string | null,
+    } | null,
     file?:  {
       __typename: "S3Object",
       bucket: string,

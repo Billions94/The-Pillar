@@ -54,6 +54,10 @@ export const getHistory = /* GraphQL */ `
       title
       content
       image
+      className {
+        className
+        className2
+      }
       file {
         bucket
         region
@@ -76,6 +80,10 @@ export const listHistorys = /* GraphQL */ `
         title
         content
         image
+        className {
+          className
+          className2
+        }
         file {
           bucket
           region

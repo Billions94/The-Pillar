@@ -35,6 +35,10 @@ export interface History {
     title: string
     content: string
     image: string
+    // className?: {
+    //     className?: string
+    //     className2?: string
+    // }
     file?: {
         bucket: string
         region: string

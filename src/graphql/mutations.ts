@@ -78,6 +78,10 @@ export const createHistory = /* GraphQL */ `
       title
       content
       image
+      className {
+        className
+        className2
+      }
       file {
         bucket
         region
@@ -98,6 +102,10 @@ export const updateHistory = /* GraphQL */ `
       title
       content
       image
+      className {
+        className
+        className2
+      }
       file {
         bucket
         region
@@ -118,6 +126,10 @@ export const deleteHistory = /* GraphQL */ `
       title
       content
       image
+      className {
+        className
+        className2
+      }
       file {
         bucket
         region
