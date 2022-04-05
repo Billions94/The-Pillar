@@ -3,7 +3,7 @@ import * as Atom from '../atoms'
 import React, { useState } from 'react'
 import { Storage, API, graphqlOperation } from 'aws-amplify'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { createProduct, updateProduct, deleteProduct, createHistory } from '../../graphql/mutations'
+import { createProduct, updateProduct, deleteProduct, createHistory, updateHistory } from '../../graphql/mutations'
 import awsExports from '../../aws-exports'
 import { useNavigate } from 'react-router-dom'
 import { listProducts } from '../../graphql/queries'
@@ -437,6 +437,8 @@ export function HistoryForm() {
                     <RB.FormControl
                         className={check ? 'formControl' : 'formControl-Dark'}
                         value={newHistory.content}
+                        as='textarea'
+                        rows={3}
                         type='text'
                         onChange={(e) => updateInput('content', e.target.value)}
                         placeholder='content' />
@@ -475,6 +477,94 @@ export function HistoryForm() {
                 </div>
 
             </RB.Form>
+        </>
+    )
+}
+
+export function UpdateHistoryForm() {
+
+    const initialState = {
+        title: '',
+        content: '',
+        image: '',
+        file: {
+            bucket: '',
+            region: '',
+            key: ''
+        }
+    }
+
+    const navigate = useNavigate()
+    const [newHistory, updateNewHistory] = useState(initialState)
+    const [refresh, setRefresh] = useRecoilState(Atom.refreshState)
+    const [history, setHistory] = useRecoilState(Atom.historyState)
+    const [_modalShow, setModalShow] = useRecoilState(Atom.modalState)
+    const darkMode = useRecoilValue(Atom.darkModeState)
+    const selected = useRecoilValue(Atom.selectedState)
+    const check: boolean = darkMode === false
+
+    const index = history.findIndex((p, idx) => idx === selected)
+
+    const historyToUpdate = history[index]
+
+    function updateInput(key: string, value: string) {
+        updateNewHistory({ ...newHistory, [key]: value })
+    }
+
+    function target(e: any) {
+        if (e.target && e.target.files[0]) {
+            const file = e.target.files[0]
+            console.log('This is the file', file)
+
+            Storage.put(file.name, file, {
+                contentType: 'image/png|image/jpeg|image/jpg'
+            }).then((response) => {
+                const image = {
+                    bucket: awsExports.aws_user_files_s3_bucket,
+                    region: awsExports.aws_user_files_s3_bucket_region,
+                    key: 'public/' + file.name
+                }
+                updateNewHistory({ ...newHistory, file: image })
+                console.log('Sucessfully uploaded', image)
+            })
+        }
+    }
+
+    async function update() {
+        try {
+            const hist = { ...historyToUpdate };
+            // Appending the data from the form to the existing product
+            hist.title = newHistory.title
+            hist.content = newHistory.content
+            hist.image = newHistory.image
+            
+            // Deleting these information because they are handled by graphql
+            delete hist.createdAt;
+            delete hist.updatedAt;
+            delete hist.owner;
+
+            if (historyToUpdate.image === null || undefined) {
+                const imageFilePath = newHistory.file.key.split('/').slice(-1).join()
+
+                const imageUrl = await Storage.get(imageFilePath, { expires: 10080 })
+                newHistory.image = imageUrl
+            }
+
+            const { data }: any = await API.graphql(graphqlOperation(updateHistory, { input: hist }));
+            const newHist = [...history];
+            newHist[index] = data.updateProduct;
+            setHistory(newHist);
+            updateNewHistory(initialState);
+            setModalShow(false);
+            setRefresh(true)
+            navigate('/')
+        } catch (error) {
+            console.log('Unable to update product', error)
+        }
+    }
+
+    return (
+        <>
         </>
     )
 }

@@ -14,7 +14,8 @@ export default function Featured() {
     const darkMode = useRecoilValue(darkModeState)
     const check: boolean = darkMode === false
     const [history, setHistory] = useRecoilState(historyState)
-    const [selected, setSelected] = React.useState(0)
+ console.log('The histories are: ', history)
+
 
 
     async function fetchHistory() {
@@ -46,15 +47,15 @@ export default function Featured() {
                             <Col key={idx} className={item.className} sm={12} md={6} lg={6}>
                                 <h1 className={item.className2}>{item.header}</h1>
                                 <>
-                                    {history.slice(0, 4).reverse().map((his, jdx) => (
-                                        <>
+                                    {history.slice(0, 4).map((his, jdx) => (
+                                        <div key={jdx}>
                                             { idx === jdx &&
                                                 <div key={jdx}>
                                                     <p className={idx === 2 ? 'p': 'p-dark'}>{his.content}</p>
                                                     <Image src={his.image} width='50px' />
                                                 </div>
                                             }
-                                        </>
+                                        </div>
                                     ))}
                                 </>
                             </Col>
